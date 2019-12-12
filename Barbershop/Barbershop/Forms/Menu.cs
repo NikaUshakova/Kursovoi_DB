@@ -49,6 +49,13 @@ namespace Barbershop
             moveY = e.Y;
         }
 
+        private void MastersBtn_Click(object sender, EventArgs e)
+        {
+            Masters formMasters = new Masters();
+            formMasters.Show();
+            this.Hide();
+        }
+
         private void Menu_MouseMove(object sender, MouseEventArgs e)
         {
             if (move == 1)

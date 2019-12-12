@@ -63,6 +63,16 @@ namespace Barbershop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add {
+            get {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap analytics70 {
             get {
                 object obj = ResourceManager.GetObject("analytics70", resourceCulture);
@@ -103,9 +113,9 @@ namespace Barbershop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap organize {
+        internal static System.Drawing.Bitmap pencil {
             get {
-                object obj = ResourceManager.GetObject("organize", resourceCulture);
+                object obj = ResourceManager.GetObject("pencil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

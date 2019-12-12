@@ -1,6 +1,6 @@
-﻿namespace ConnectionLibrary
+﻿namespace Barbershop
 {
-    partial class conn
+    partial class DoneWorks
     {
         /// <summary>
         /// Required designer variable.
@@ -20,14 +20,17 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify 
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            this.CloseExe = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.InfoWorks = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MasterSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -35,8 +38,47 @@
             this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SearchField = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoWorks)).BeginInit();
             this.SuspendLayout();
+            // 
+            // CloseExe
+            // 
+            this.CloseExe.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CloseExe.Image = global::Barbershop.Properties.Resources.multiply;
+            this.CloseExe.Location = new System.Drawing.Point(1102, 0);
+            this.CloseExe.Name = "CloseExe";
+            this.CloseExe.Size = new System.Drawing.Size(28, 28);
+            this.CloseExe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CloseExe.TabIndex = 5;
+            this.CloseExe.TabStop = false;
+            this.CloseExe.Click += new System.EventHandler(this.CloseExe_Click);
+            this.CloseExe.MouseLeave += new System.EventHandler(this.CloseExe_MouseLeave);
+            this.CloseExe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CloseExe_MouseMove);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.CloseExe);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1140, 30);
+            this.panel1.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(432, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(222, 23);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Выполненные заказы";
             // 
             // InfoWorks
             // 
@@ -47,13 +89,14 @@
             this.MasterName,
             this.Patronymic,
             this.Order,
-            this.Sum});
-            this.InfoWorks.Location = new System.Drawing.Point(0, 0);
+            this.Sum,
+            this.Date});
+            this.InfoWorks.Location = new System.Drawing.Point(10, 60);
             this.InfoWorks.Name = "InfoWorks";
             this.InfoWorks.RowHeadersWidth = 51;
             this.InfoWorks.RowTemplate.Height = 24;
-            this.InfoWorks.Size = new System.Drawing.Size(1016, 214);
-            this.InfoWorks.TabIndex = 8;
+            this.InfoWorks.Size = new System.Drawing.Size(1119, 214);
+            this.InfoWorks.TabIndex = 7;
             // 
             // ID
             // 
@@ -116,26 +159,71 @@
             this.Sum.ReadOnly = true;
             this.Sum.Width = 118;
             // 
-            // conn
+            // Date
+            // 
+            this.Date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Date.HeaderText = "Дата проведения";
+            this.Date.MaxInputLength = 10;
+            this.Date.MinimumWidth = 6;
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 141;
+            // 
+            // SearchField
+            // 
+            this.SearchField.Location = new System.Drawing.Point(103, 32);
+            this.SearchField.Multiline = true;
+            this.SearchField.Name = "SearchField";
+            this.SearchField.Size = new System.Drawing.Size(860, 25);
+            this.SearchField.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(27, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 20);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Поиск:";
+            // 
+            // DoneWorks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ClientSize = new System.Drawing.Size(1138, 595);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.SearchField);
             this.Controls.Add(this.InfoWorks);
-            this.Name = "conn";
-            this.Size = new System.Drawing.Size(1019, 354);
-            this.Load += new System.EventHandler(this.conn_Load);
+            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "DoneWorks";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Menu";
+            this.Load += new System.EventHandler(this.DoneWorks_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoWorks)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        public System.Windows.Forms.DataGridView InfoWorks;
+        private System.Windows.Forms.PictureBox CloseExe;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MasterSurname;
         private System.Windows.Forms.DataGridViewTextBoxColumn MasterName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Patronymic;
         private System.Windows.Forms.DataGridViewTextBoxColumn Order;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        public System.Windows.Forms.DataGridView InfoWorks;
+        private System.Windows.Forms.TextBox SearchField;
+        private System.Windows.Forms.Label label2;
     }
 }

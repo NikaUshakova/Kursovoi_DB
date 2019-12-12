@@ -47,24 +47,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoneWorks.cs">
+    <Compile Include="Forms\Masters.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DoneWorks.Designer.cs">
+    <Compile Include="Forms\Masters.Designer.cs">
+      <DependentUpon>Masters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DoneWorks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DoneWorks.Designer.cs">
       <DependentUpon>DoneWorks.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menu.cs">
+    <Compile Include="Forms\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="Forms\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DoneWorks.resx">
+    <EmbeddedResource Include="Forms\Masters.resx">
+      <DependentUpon>Masters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DoneWorks.resx">
       <DependentUpon>DoneWorks.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="Forms\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -94,9 +103,6 @@
     <None Include="Resources\check.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\organize.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\new-user.png" />
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +116,12 @@
       <Project>{5af61cf5-f835-4a75-aa39-7b1f91906e01}</Project>
       <Name>ConnectionLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

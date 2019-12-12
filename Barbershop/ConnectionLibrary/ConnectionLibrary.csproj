@@ -43,19 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="conn.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="conn.Designer.cs">
-      <DependentUpon>conn.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ConnectClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueriesClass.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="conn.resx">
-      <DependentUpon>conn.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
