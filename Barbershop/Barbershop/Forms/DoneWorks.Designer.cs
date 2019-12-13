@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CloseExe = new System.Windows.Forms.PictureBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.InfoWorks = new System.Windows.Forms.DataGridView();
+            this.SearchField = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MasterSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MasterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,42 +41,36 @@
             this.Order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SearchField = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).BeginInit();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.countWorks = new System.Windows.Forms.ToolStripStatusLabel();
+            this.CloseExe = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoWorks)).BeginInit();
+            this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).BeginInit();
             this.SuspendLayout();
-            // 
-            // CloseExe
-            // 
-            this.CloseExe.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.CloseExe.Image = global::Barbershop.Properties.Resources.multiply;
-            this.CloseExe.Location = new System.Drawing.Point(1102, 0);
-            this.CloseExe.Name = "CloseExe";
-            this.CloseExe.Size = new System.Drawing.Size(28, 28);
-            this.CloseExe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CloseExe.TabIndex = 5;
-            this.CloseExe.TabStop = false;
-            this.CloseExe.Click += new System.EventHandler(this.CloseExe_Click);
-            this.CloseExe.MouseLeave += new System.EventHandler(this.CloseExe_MouseLeave);
-            this.CloseExe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CloseExe_MouseMove);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.CloseExe);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1140, 30);
             this.panel1.TabIndex = 6;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_DoneWorks_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_DoneWorks_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_DoneWorks_MouseUp);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(432, 5);
+            this.label1.Location = new System.Drawing.Point(349, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(222, 23);
             this.label1.TabIndex = 6;
@@ -91,16 +87,43 @@
             this.Order,
             this.Sum,
             this.Date});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.InfoWorks.DefaultCellStyle = dataGridViewCellStyle2;
             this.InfoWorks.Location = new System.Drawing.Point(10, 60);
             this.InfoWorks.Name = "InfoWorks";
             this.InfoWorks.RowHeadersWidth = 51;
             this.InfoWorks.RowTemplate.Height = 24;
-            this.InfoWorks.Size = new System.Drawing.Size(1119, 214);
+            this.InfoWorks.Size = new System.Drawing.Size(938, 214);
             this.InfoWorks.TabIndex = 7;
+            // 
+            // SearchField
+            // 
+            this.SearchField.Location = new System.Drawing.Point(88, 32);
+            this.SearchField.Multiline = true;
+            this.SearchField.Name = "SearchField";
+            this.SearchField.Size = new System.Drawing.Size(860, 25);
+            this.SearchField.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(6, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 20);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Поиск:";
             // 
             // ID
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.Frozen = true;
             this.ID.HeaderText = "ID";
             this.ID.MaxInputLength = 5;
             this.ID.MinimumWidth = 6;
@@ -113,6 +136,7 @@
             // MasterSurname
             // 
             this.MasterSurname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.MasterSurname.Frozen = true;
             this.MasterSurname.HeaderText = "Фамилия";
             this.MasterSurname.MaxInputLength = 45;
             this.MasterSurname.MinimumWidth = 6;
@@ -123,6 +147,7 @@
             // MasterName
             // 
             this.MasterName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.MasterName.Frozen = true;
             this.MasterName.HeaderText = "Имя";
             this.MasterName.MaxInputLength = 45;
             this.MasterName.MinimumWidth = 6;
@@ -133,6 +158,7 @@
             // Patronymic
             // 
             this.Patronymic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Patronymic.Frozen = true;
             this.Patronymic.HeaderText = "Отчество";
             this.Patronymic.MaxInputLength = 45;
             this.Patronymic.MinimumWidth = 6;
@@ -142,6 +168,7 @@
             // Order
             // 
             this.Order.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Order.Frozen = true;
             this.Order.HeaderText = "Наименование заказа";
             this.Order.MaxInputLength = 1000;
             this.Order.MinimumWidth = 6;
@@ -169,30 +196,66 @@
             this.Date.ReadOnly = true;
             this.Date.Width = 141;
             // 
-            // SearchField
+            // statusStrip1
             // 
-            this.SearchField.Location = new System.Drawing.Point(103, 32);
-            this.SearchField.Multiline = true;
-            this.SearchField.Name = "SearchField";
-            this.SearchField.Size = new System.Drawing.Size(860, 25);
-            this.SearchField.TabIndex = 8;
+            this.statusStrip1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.countWorks});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 537);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(960, 24);
+            this.statusStrip1.TabIndex = 13;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // label2
+            // countWorks
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(27, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 20);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Поиск:";
+            this.countWorks.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.countWorks.Name = "countWorks";
+            this.countWorks.Size = new System.Drawing.Size(265, 18);
+            this.countWorks.Text = "Количество выполненных работ:";
+            // 
+            // CloseExe
+            // 
+            this.CloseExe.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CloseExe.Image = global::Barbershop.Properties.Resources.multiply;
+            this.CloseExe.Location = new System.Drawing.Point(917, -1);
+            this.CloseExe.Name = "CloseExe";
+            this.CloseExe.Size = new System.Drawing.Size(28, 28);
+            this.CloseExe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CloseExe.TabIndex = 5;
+            this.CloseExe.TabStop = false;
+            this.CloseExe.Click += new System.EventHandler(this.CloseExe_Click);
+            this.CloseExe.MouseLeave += new System.EventHandler(this.CloseExe_MouseLeave);
+            this.CloseExe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CloseExe_MouseMove);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(144, 341);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.TabIndex = 14;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Сортировки, фильтры";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(483, 341);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(141, 17);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "редактировать ПКМ";
             // 
             // DoneWorks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1138, 595);
+            this.ClientSize = new System.Drawing.Size(960, 561);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchField);
             this.Controls.Add(this.InfoWorks);
@@ -202,10 +265,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.DoneWorks_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).EndInit();
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_DoneWorks_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_DoneWorks_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_DoneWorks_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.InfoWorks)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -215,6 +283,9 @@
         private System.Windows.Forms.PictureBox CloseExe;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.DataGridView InfoWorks;
+        private System.Windows.Forms.TextBox SearchField;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MasterSurname;
         private System.Windows.Forms.DataGridViewTextBoxColumn MasterName;
@@ -222,8 +293,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Order;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sum;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        public System.Windows.Forms.DataGridView InfoWorks;
-        private System.Windows.Forms.TextBox SearchField;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel countWorks;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label3;
     }
 }

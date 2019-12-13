@@ -47,6 +47,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddService.Designer.cs">
+      <DependentUpon>AddService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoadForm.Designer.cs">
+      <DependentUpon>LoadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddMaster.Designer.cs">
+      <DependentUpon>AddMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Masters.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +85,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AddService.resx">
+      <DependentUpon>AddService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoadForm.resx">
+      <DependentUpon>LoadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddMaster.resx">
+      <DependentUpon>AddMaster.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Masters.resx">
       <DependentUpon>Masters.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +149,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\load.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loadText.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insMaster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add%2840%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset%2840%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

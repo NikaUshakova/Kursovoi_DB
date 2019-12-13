@@ -117,28 +117,38 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MasterSurname.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="MasterName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Patronymic.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Order.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Sum.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Date.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
 </root>

@@ -17,9 +17,11 @@ namespace ConnectionLibrary
         static List<string[]> donework = new List<string[]>();
         static List<string[]> masters = new List<string[]>();
         // static DataGridView InfoWorksTable;
-        public static List<string[]> SelectOrders(string query, DataGridView Info, int casenumber)
+        public static List<string[]> SelectQuery(string query, DataGridView Info,int check)
         {
-                       //Open connection
+            int countColumn = Info.ColumnCount;
+            List<string[]> listName = GetList(check);
+            //Open connection
             if (ConnectionClass.OpenConnection() == true)
             {
                 //Create Command
@@ -30,37 +32,15 @@ namespace ConnectionLibrary
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    switch (casenumber)
-                    {
-                        case 1:
-                            {
-                                donework.Add(new string[6]);
-                                donework[donework.Count - 1][0] = dataReader[0].ToString(); //id
-                                donework[donework.Count - 1][1] = dataReader[1].ToString();//surname
-                                donework[donework.Count - 1][2] = dataReader[2].ToString();//name
-                                donework[donework.Count - 1][3] = dataReader[3].ToString();//patronymic
-                                donework[donework.Count - 1][4] = dataReader[4].ToString();//ordername
-                                donework[donework.Count - 1][5] = dataReader[5].ToString();//sumorder
-                                                                          // donework[donework.Count - 1][6] = dataReader[6].ToString();//date
-                                RefreshInfo(Info, 1);
-                                break;
-                            }
-                        case 2:
-                            {
-                                masters.Add(new string[6]);
-                                masters[masters.Count - 1][0] = dataReader[0].ToString(); //id
-                                masters[masters.Count - 1][1] = dataReader[1].ToString();//surname
-                                masters[masters.Count - 1][2] = dataReader[2].ToString();//name
-                                masters[masters.Count - 1][3] = dataReader[3].ToString();//patronymic
-                                masters[masters.Count - 1][4] = dataReader[4].ToString();//adress
-                                masters[masters.Count - 1][5] = dataReader[5].ToString();//phone
-                                RefreshInfo(Info,2);
-                                break;
-                            }
-                    }
-                    
+                    listName.Add(new string[countColumn]);
+                    for (int i = 0; i < countColumn; i++)
+                    {                        
+                        listName[listName.Count - 1][i] = dataReader[i].ToString(); //get info from DB tables depending on the count of columns
+                    }                               
+                         
                 }
-               
+                RefreshInfo(Info, check);
+
                 //close Data Reader
                 dataReader.Close();
 
@@ -75,9 +55,10 @@ namespace ConnectionLibrary
                 return donework;
             }
         }
-        public static void RefreshInfo(DataGridView Info, int check)
+
+        private static List<string[]> GetList(int check)
         {
-            List <string []>listName = new List<string[]>();
+            List<string[]> listName = new List<string[]>();
             switch (check)
             {
                 case 1:
@@ -91,21 +72,50 @@ namespace ConnectionLibrary
                         break;
                     }
             }
+            return listName;
+        }
+        private static void RefreshInfo(DataGridView Info, int check)
+        {
+            List<string[]> listName = GetList(check);
             Info.Rows.Clear();
             for (int i = 0; i < listName.Count; i++)
             {
                 if (i % 2 == 0)
                 {
                     Info.Rows.Add(listName[i]);
-                    Info.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(222, 236, 255);
+                    Info.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(251, 254, 254);
                 }
                 else
                 {
                     Info.Rows.Add(listName[i]);
-                    Info.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(243, 248, 255);
+                    Info.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(223, 248, 248);
                 }
             }
 
+        }
+
+        public static void Insert_Into(string query)
+        {
+            try
+            {
+                          //open connection
+                if (ConnectionClass.OpenConnection() == true)
+                {
+                    //create command and assign the query and connection from the constructor
+                    MySqlCommand cmd = new MySqlCommand(query, ConnectionClass.connection);
+
+                    //Execute command
+                    cmd.ExecuteNonQuery();
+
+                    //close connection
+                    ConnectionClass.CloseConnection();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Какая-то ошибка в твоей жизни");
+                return;
+            }
         }
     }
 }

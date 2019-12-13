@@ -18,7 +18,8 @@ namespace Barbershop
         public Masters()
         {
             InitializeComponent();
-            ConnectionClass.GetConnect();            
+            ConnectionClass.GetConnect();
+            MastersTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }       
        
         private void CloseExe_Click(object sender, EventArgs e)
@@ -47,12 +48,28 @@ namespace Barbershop
         
         private void Masters_Load(object sender, EventArgs e)
         {
-            QueriesClass.SelectOrders(querySelectMasters, MastersTable,2);
+            QueriesClass.SelectQuery(querySelectMasters, MastersTable,2);
+            countMasters.Text = "Количество мастеров: "+(MastersTable.RowCount-1);
+        }
+        int moveX, moveY, move;
+        private void panel1_Masters_MouseDown(object sender, MouseEventArgs e)
+        {
+            move = 1;
+            moveX = e.X;
+            moveY = e.Y;
         }
 
-        
-        
+        private void panel1_Masters_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (move == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - moveX, MousePosition.Y - moveY);
+            }
+        }
 
-        
+        private void panel1_Masters_MouseUp(object sender, MouseEventArgs e)
+        {
+            move = 0;
+        }
     }
 }

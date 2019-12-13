@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.CloseExe = new System.Windows.Forms.PictureBox();
             this.MastersTable = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MasterSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,33 +39,53 @@
             this.Patronymic = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CloseExe = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchField = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.countMasters = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MastersTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MastersTable)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.CloseExe);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1140, 30);
+            this.panel1.Size = new System.Drawing.Size(982, 30);
             this.panel1.TabIndex = 6;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_Masters_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_Masters_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_Masters_MouseUp);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(396, 5);
+            this.label1.Location = new System.Drawing.Point(279, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(340, 23);
             this.label1.TabIndex = 6;
             this.label1.Text = "Состав мастеров парикмахерской";
+            // 
+            // CloseExe
+            // 
+            this.CloseExe.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CloseExe.Image = global::Barbershop.Properties.Resources.multiply;
+            this.CloseExe.Location = new System.Drawing.Point(941, -1);
+            this.CloseExe.Name = "CloseExe";
+            this.CloseExe.Size = new System.Drawing.Size(28, 28);
+            this.CloseExe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CloseExe.TabIndex = 5;
+            this.CloseExe.TabStop = false;
+            this.CloseExe.Click += new System.EventHandler(this.CloseExe_Click);
+            this.CloseExe.MouseLeave += new System.EventHandler(this.CloseExe_MouseLeave);
+            this.CloseExe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CloseExe_MouseMove);
             // 
             // MastersTable
             // 
@@ -75,11 +97,19 @@
             this.Patronymic,
             this.Order,
             this.Sum});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MastersTable.DefaultCellStyle = dataGridViewCellStyle1;
             this.MastersTable.Location = new System.Drawing.Point(10, 58);
             this.MastersTable.Name = "MastersTable";
             this.MastersTable.RowHeadersWidth = 51;
             this.MastersTable.RowTemplate.Height = 24;
-            this.MastersTable.Size = new System.Drawing.Size(1119, 214);
+            this.MastersTable.Size = new System.Drawing.Size(959, 242);
             this.MastersTable.TabIndex = 7;
             // 
             // ID
@@ -143,25 +173,11 @@
             this.Sum.ReadOnly = true;
             this.Sum.Width = 97;
             // 
-            // CloseExe
-            // 
-            this.CloseExe.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.CloseExe.Image = global::Barbershop.Properties.Resources.multiply;
-            this.CloseExe.Location = new System.Drawing.Point(1102, 0);
-            this.CloseExe.Name = "CloseExe";
-            this.CloseExe.Size = new System.Drawing.Size(28, 28);
-            this.CloseExe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CloseExe.TabIndex = 5;
-            this.CloseExe.TabStop = false;
-            this.CloseExe.Click += new System.EventHandler(this.CloseExe_Click);
-            this.CloseExe.MouseLeave += new System.EventHandler(this.CloseExe_MouseLeave);
-            this.CloseExe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CloseExe_MouseMove);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(45, 34);
+            this.label2.Location = new System.Drawing.Point(6, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 20);
             this.label2.TabIndex = 11;
@@ -169,18 +185,38 @@
             // 
             // SearchField
             // 
-            this.SearchField.Location = new System.Drawing.Point(121, 31);
+            this.SearchField.Location = new System.Drawing.Point(87, 31);
             this.SearchField.Multiline = true;
             this.SearchField.Name = "SearchField";
-            this.SearchField.Size = new System.Drawing.Size(860, 25);
+            this.SearchField.Size = new System.Drawing.Size(882, 25);
             this.SearchField.TabIndex = 10;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.countMasters});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 426);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(981, 24);
+            this.statusStrip1.TabIndex = 12;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // countMasters
+            // 
+            this.countMasters.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.countMasters.Name = "countMasters";
+            this.countMasters.Size = new System.Drawing.Size(181, 18);
+            this.countMasters.Text = "Количество мастеров:";
             // 
             // Masters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1138, 595);
+            this.ClientSize = new System.Drawing.Size(981, 450);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchField);
             this.Controls.Add(this.MastersTable);
@@ -190,10 +226,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.Masters_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_Masters_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_Masters_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_Masters_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MastersTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MastersTable)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +253,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sum;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox SearchField;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel countMasters;
     }
 }

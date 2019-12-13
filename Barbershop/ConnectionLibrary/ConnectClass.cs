@@ -33,7 +33,7 @@ namespace ConnectionLibrary
             try
             {
                 connection.Open();
-                MessageBox.Show("Соединение установлено!");
+                //MessageBox.Show("Соединение установлено!");
                 return true;
             }
             catch (MySqlException ex)

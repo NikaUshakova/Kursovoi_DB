@@ -42,7 +42,7 @@ namespace Barbershop
 
         int moveX, moveY, move;
 
-        private void Menu_MouseDown(object sender, MouseEventArgs e)
+        private void menuStrip1_Menu_MouseDown(object sender, MouseEventArgs e)
         {
             move = 1;
             moveX = e.X;
@@ -56,7 +56,21 @@ namespace Barbershop
             this.Hide();
         }
 
-        private void Menu_MouseMove(object sender, MouseEventArgs e)
+        private void AddMasterForm_Click(object sender, EventArgs e)
+        {
+            var addMaster = new AddMaster();
+            addMaster.Show();
+            this.Hide();
+        }
+
+        private void AddServiceForm_Click(object sender, EventArgs e)
+        {
+            var addService = new AddService();
+            addService.Show();
+            this.Hide();
+        }
+
+        private void menuStrip1_Menu_MouseMove(object sender, MouseEventArgs e)
         {
             if (move == 1)
             {
@@ -64,7 +78,7 @@ namespace Barbershop
             }
         }
 
-        private void Menu_MouseUp(object sender, MouseEventArgs e)
+        private void menuStrip1_Menu_MouseUp(object sender, MouseEventArgs e)
         {
             move = 0;
         }

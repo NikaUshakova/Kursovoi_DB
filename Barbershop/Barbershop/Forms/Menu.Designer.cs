@@ -45,6 +45,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.PaleTurquoise;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.справкаToolStripMenuItem,
@@ -53,10 +54,9 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(438, 31);
             this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseDown);
-            this.menuStrip1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseMove);
-            this.menuStrip1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseUp);
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseDown);
+            this.menuStrip1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseMove);
+            this.menuStrip1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseUp);
             // 
             // справкаToolStripMenuItem
             // 
@@ -80,11 +80,12 @@
             this.AddServiceForm.Location = new System.Drawing.Point(12, 375);
             this.AddServiceForm.Name = "AddServiceForm";
             this.AddServiceForm.Size = new System.Drawing.Size(414, 101);
-            this.AddServiceForm.TabIndex = 6;
+            this.AddServiceForm.TabIndex = 4;
             this.AddServiceForm.Text = "Добавление услуги";
             this.AddServiceForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddServiceForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.AddServiceForm.UseVisualStyleBackColor = false;
+            this.AddServiceForm.Click += new System.EventHandler(this.AddServiceForm_Click);
             // 
             // CloseExe
             // 
@@ -110,7 +111,7 @@
             this.StatisticForm.Location = new System.Drawing.Point(12, 482);
             this.StatisticForm.Name = "StatisticForm";
             this.StatisticForm.Size = new System.Drawing.Size(414, 101);
-            this.StatisticForm.TabIndex = 4;
+            this.StatisticForm.TabIndex = 5;
             this.StatisticForm.Text = "Статистика            ";
             this.StatisticForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StatisticForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -131,6 +132,7 @@
             this.AddMasterForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddMasterForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.AddMasterForm.UseVisualStyleBackColor = false;
+            this.AddMasterForm.Click += new System.EventHandler(this.AddMasterForm_Click);
             // 
             // MastersForm
             // 
@@ -184,9 +186,9 @@
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Menu_MouseUp);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).EndInit();
