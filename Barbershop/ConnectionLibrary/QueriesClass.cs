@@ -17,9 +17,9 @@ namespace ConnectionLibrary
         static List<string[]> donework = new List<string[]>();
         static List<string[]> masters = new List<string[]>();
         // static DataGridView InfoWorksTable;
-        public static List<string[]> SelectQuery(string query, DataGridView Info,int check)
+        public static List<string[]> SelectQuery(string query, DataGridView table,int check)
         {
-            int countColumn = Info.ColumnCount;
+            int countColumn = table.ColumnCount;
             List<string[]> listName = GetList(check);
             //Open connection
             if (ConnectionClass.OpenConnection() == true)
@@ -39,7 +39,7 @@ namespace ConnectionLibrary
                     }                               
                          
                 }
-                RefreshInfo(Info, check);
+                RefreshInfo(table, check);
 
                 //close Data Reader
                 dataReader.Close();
@@ -71,6 +71,7 @@ namespace ConnectionLibrary
                         listName = masters;
                         break;
                     }
+                
             }
             return listName;
         }

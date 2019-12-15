@@ -26,8 +26,7 @@ namespace Barbershop
     /// <param name="sender"></param>
     /// <param name="e"></param>
         private void CloseExe_Click(object sender, EventArgs e)
-        {
-            
+        {            
             Menu menu = new Menu();
             menu.Show();
             this.Close();
@@ -47,9 +46,12 @@ namespace Barbershop
         /// <summary>
         /// queries
         /// </summary>
-        string querySelectOrders = "SELECT masters.id_master,masters.Surname,masters.Name,masters.Patronymic," +
-             " orders.Name, orders.Sum, orders.Date from masters " +
-             " JOIN orders ON masters.id_master=orders.id_master Group BY masters.id_master";
+        string querySelectOrders = "SELECT masters.id_master,masters.Surname,masters.Name,masters.Patronymic,Group_concat(service.name_service SEPARATOR ', ') as 'Наименование заказа'," +
+                                  " sum(service.price)  as 'Сумма заказа', orders.Date" +
+                    " FROM service INNER JOIN order_service ON service.id_service=order_service.id_service " +
+                    " INNER JOIN orders ON orders.id_order= order_service.id_order" +
+                    " INNER JOIN masters ON masters.id_master = orders.id_master" +
+                    " GROUP BY order_service.id_order";
         //string querySelectMasters = "SELECT * From masters";
 
         /// <summary>
@@ -70,7 +72,7 @@ namespace Barbershop
             moveX = e.X;
             moveY = e.Y;
         }
-
+        
         private void panel1_DoneWorks_MouseMove(object sender, MouseEventArgs e)
         {
             if (move == 1)
@@ -82,6 +84,18 @@ namespace Barbershop
         private void panel1_DoneWorks_MouseUp(object sender, MouseEventArgs e)
         {
             move = 5;
+        }
+
+
+        private void AddOrder_Click(object sender, EventArgs e)
+        {
+            AddOrder newOrder = new AddOrder();
+            newOrder.Show();
+            
+           // string queryInsertOrder = "INSERT INTO orders (Date, id_master) VALUES ('"+date+"', "+ID.master+");";
+            //string queryInsertOrder_service = "INSERT INTO order_service (id_order, id_service) VALUES ("+ID.order+", "+ID.service+");";
+           // QueriesClass.Insert_Into(queryInsertOrder);
+            //QueriesClass.Insert_Into(queryInsertOrder);
         }
     }
 }
