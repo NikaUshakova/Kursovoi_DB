@@ -59,7 +59,7 @@ CREATE TABLE `order_service` (
   KEY `FK_service_line_idx` (`id_service`),
   CONSTRAINT `FK_order_line` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id_order`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_service_line` FOREIGN KEY (`id_service`) REFERENCES `service` (`id_service`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `order_service` (
 
 LOCK TABLES `order_service` WRITE;
 /*!40000 ALTER TABLE `order_service` DISABLE KEYS */;
-INSERT INTO `order_service` VALUES (1,1,2),(2,1,3),(3,1,4),(4,2,15);
+INSERT INTO `order_service` VALUES (1,16,4),(2,17,5),(3,17,3),(4,17,7),(5,18,3),(6,18,4),(7,18,5),(8,19,5),(9,19,2),(10,19,4),(11,20,4);
 /*!40000 ALTER TABLE `order_service` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,13 +81,12 @@ DROP TABLE IF EXISTS `orders`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orders` (
   `id_order` int(11) NOT NULL AUTO_INCREMENT,
-  `Sum` int(4) DEFAULT NULL,
-  `Date` date NOT NULL,
+  `Date` datetime NOT NULL,
   `id_master` int(11) NOT NULL,
   PRIMARY KEY (`id_order`),
   KEY `FK_master_order_idx` (`id_master`),
   CONSTRAINT `FK_master_order` FOREIGN KEY (`id_master`) REFERENCES `masters` (`id_master`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +95,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,NULL,'2019-12-12',1),(2,NULL,'2019-10-27',2),(3,NULL,'2019-11-23',3);
+INSERT INTO `orders` VALUES (13,'2029-12-20 00:00:00',3),(14,'2011-12-20 00:00:00',4),(15,'2025-12-20 00:00:00',6),(16,'2019-12-20 00:00:00',4),(17,'2026-12-20 00:00:00',5),(18,'2019-12-20 19:00:00',1),(19,'2026-12-20 19:00:00',5),(20,'2020-12-20 19:00:00',5);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-16  0:03:26
+-- Dump completed on 2019-12-17 23:26:50
