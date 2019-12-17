@@ -72,7 +72,7 @@ namespace Barbershop
                                      phone = PhoneKod.SelectedItem.ToString() + phoneNumber.Text;
                                      queryInsertMaster = "Insert into masters VALUES(0,'" + surname.Text + "','" + nameTB.Text + "','" + patronymic.Text + "','" +
                                          adress.Text + "','" + phone + "');";
-                                    QueriesClass.Insert_Into(queryInsertMaster);
+                                    QueriesClass.QuerytoTable(queryInsertMaster);
                                      Reset();
                                 }
                                 else

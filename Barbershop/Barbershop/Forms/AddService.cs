@@ -61,7 +61,7 @@ namespace Barbershop
                             if (!price.Text.Contains("."))
                             {
                                  queryInsertService = "Insert into service VALUES(0,'" + nameService.Text + "'," + int.Parse(price.Text) + ");";
-                                 QueriesClass.Insert_Into(queryInsertService);
+                                 QueriesClass.QuerytoTable(queryInsertService);
                                  Reset();
                             }
                             else

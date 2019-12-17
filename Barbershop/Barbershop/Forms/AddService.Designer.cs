@@ -59,7 +59,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(136, 2);
+            this.label1.Location = new System.Drawing.Point(134, 2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 23);
             this.label1.TabIndex = 6;
@@ -69,7 +69,7 @@
             // 
             this.CloseExe.BackColor = System.Drawing.Color.PaleTurquoise;
             this.CloseExe.Image = global::Barbershop.Properties.Resources.multiply;
-            this.CloseExe.Location = new System.Drawing.Point(436, -1);
+            this.CloseExe.Location = new System.Drawing.Point(406, 0);
             this.CloseExe.Name = "CloseExe";
             this.CloseExe.Size = new System.Drawing.Size(28, 28);
             this.CloseExe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -83,7 +83,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(27, 62);
+            this.label2.Location = new System.Drawing.Point(15, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 20);
             this.label2.TabIndex = 8;
@@ -92,7 +92,7 @@
             // nameService
             // 
             this.nameService.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameService.Location = new System.Drawing.Point(131, 58);
+            this.nameService.Location = new System.Drawing.Point(123, 58);
             this.nameService.MaxLength = 100;
             this.nameService.Multiline = true;
             this.nameService.Name = "nameService";
@@ -103,7 +103,7 @@
             // price
             // 
             this.price.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.price.Location = new System.Drawing.Point(131, 101);
+            this.price.Location = new System.Drawing.Point(123, 101);
             this.price.MaxLength = 5;
             this.price.Multiline = true;
             this.price.Name = "price";
@@ -115,7 +115,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(27, 105);
+            this.label3.Location = new System.Drawing.Point(15, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 20);
             this.label3.TabIndex = 10;
@@ -130,7 +130,7 @@
             this.resetBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.resetBtn.Image = global::Barbershop.Properties.Resources.reset_40_;
             this.resetBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.resetBtn.Location = new System.Drawing.Point(248, 143);
+            this.resetBtn.Location = new System.Drawing.Point(239, 143);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(194, 67);
             this.resetBtn.TabIndex = 8;
@@ -147,7 +147,7 @@
             this.InsService.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.InsService.ForeColor = System.Drawing.SystemColors.ControlText;
             this.InsService.Image = global::Barbershop.Properties.Resources.add_40_;
-            this.InsService.Location = new System.Drawing.Point(31, 143);
+            this.InsService.Location = new System.Drawing.Point(19, 143);
             this.InsService.Name = "InsService";
             this.InsService.Size = new System.Drawing.Size(194, 67);
             this.InsService.TabIndex = 7;
@@ -161,7 +161,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(475, 222);
+            this.ClientSize = new System.Drawing.Size(450, 222);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.price);
             this.Controls.Add(this.label3);

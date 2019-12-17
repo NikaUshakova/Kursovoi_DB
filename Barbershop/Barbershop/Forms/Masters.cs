@@ -48,7 +48,7 @@ namespace Barbershop
         
         private void Masters_Load(object sender, EventArgs e)
         {
-            QueriesClass.SelectQuery(querySelectMasters, MastersTable,2);
+            QueriesClass.SelectQuery(querySelectMasters, MastersTable);
             countMasters.Text = "Количество мастеров: "+(MastersTable.RowCount-1);
         }
         int moveX, moveY, move;

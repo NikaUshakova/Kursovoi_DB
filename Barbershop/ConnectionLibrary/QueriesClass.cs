@@ -14,13 +14,15 @@ namespace ConnectionLibrary
     /// </summary>
     public static class  QueriesClass
     {
-        static List<string[]> donework = new List<string[]>();
-        static List<string[]> masters = new List<string[]>();
+        //static List<string[]> donework = new List<string[]>();
+        //static List<string[]> masters = new List<string[]>();
+        //static List<string[]> service = new List<string[]>();
         // static DataGridView InfoWorksTable;
-        public static List<string[]> SelectQuery(string query, DataGridView table,int check)
+        static List<string[]> listName = new List<string[]>();
+        public static List<string[]> SelectQuery(string query, DataGridView table)
         {
             int countColumn = table.ColumnCount;
-            List<string[]> listName = GetList(check);
+            //List<string[]> listName = GetList(check);
             //Open connection
             if (ConnectionClass.OpenConnection() == true)
             {
@@ -28,7 +30,7 @@ namespace ConnectionLibrary
                 MySqlCommand cmd = new MySqlCommand(query, ConnectionClass.connection);
                 //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
-                donework.Clear();
+                listName.Clear();
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
@@ -39,7 +41,7 @@ namespace ConnectionLibrary
                     }                               
                          
                 }
-                RefreshInfo(table, check);
+                RefreshInfo(table);
 
                 //close Data Reader
                 dataReader.Close();
@@ -48,36 +50,73 @@ namespace ConnectionLibrary
                 ConnectionClass.CloseConnection();
 
                 //return list to be displayed
-                return donework;
+                return listName;
             }
             else
             {
-                return donework;
+                return listName;
             }
         }
 
-        private static List<string[]> GetList(int check)
+        public static string SelectLabel(string query)
         {
-            List<string[]> listName = new List<string[]>();
-            switch (check)
+            string result = "";
+            //Open connection
+            if (ConnectionClass.OpenConnection() == true)
             {
-                case 1:
-                    {
-                        listName = donework;
-                        break;
-                    }
-                case 2:
-                    {
-                        listName = masters;
-                        break;
-                    }
-                
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, ConnectionClass.connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                listName.Clear();
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    result = dataReader.GetInt32(0).ToString();
+                }           
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                ConnectionClass.CloseConnection();
+
+                //return list to be displayed
+                return result;
             }
-            return listName;
+            else
+            {
+                return result;
+            }
         }
-        private static void RefreshInfo(DataGridView Info, int check)
+
+        //private static List<string[]> GetList(int check)
+        //{
+        //    List<string[]> listName = new List<string[]>();
+        //    switch (check)
+        //    {
+        //        case 1:
+        //            {
+        //                listName = donework;
+        //                break;
+        //            }
+        //        case 2:                                                                    ПОХОЖЕ НАХЕР НАДО
+        //            {
+        //                listName = masters;
+        //                break;
+        //            }
+        //        case 3:
+        //            {
+        //                listName = service;
+        //                break;
+        //            }
+
+        //    }
+        //    return listName;
+        //}
+        private static void RefreshInfo(DataGridView Info)
         {
-            List<string[]> listName = GetList(check);
+           // List<string[]> listName = GetList(check);
             Info.Rows.Clear();
             for (int i = 0; i < listName.Count; i++)
             {
@@ -95,7 +134,7 @@ namespace ConnectionLibrary
 
         }
 
-        public static void Insert_Into(string query)
+        public static void QuerytoTable(string query)
         {
             try
             {
@@ -104,7 +143,7 @@ namespace ConnectionLibrary
                 {
                     //create command and assign the query and connection from the constructor
                     MySqlCommand cmd = new MySqlCommand(query, ConnectionClass.connection);
-
+                    
                     //Execute command
                     cmd.ExecuteNonQuery();
 
