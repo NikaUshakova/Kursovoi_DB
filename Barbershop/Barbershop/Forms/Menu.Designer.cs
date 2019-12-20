@@ -44,7 +44,7 @@
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.menuStrip1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -52,7 +52,7 @@
             this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(438, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(438, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseDown);
             this.menuStrip1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseMove);
@@ -61,13 +61,13 @@
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(90, 27);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(131, 27);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // AddServiceForm
@@ -91,9 +91,9 @@
             // 
             this.CloseExe.BackColor = System.Drawing.Color.PaleTurquoise;
             this.CloseExe.Image = global::Barbershop.Properties.Resources.multiply;
-            this.CloseExe.Location = new System.Drawing.Point(391, 1);
+            this.CloseExe.Location = new System.Drawing.Point(401, 2);
             this.CloseExe.Name = "CloseExe";
-            this.CloseExe.Size = new System.Drawing.Size(29, 29);
+            this.CloseExe.Size = new System.Drawing.Size(22, 22);
             this.CloseExe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.CloseExe.TabIndex = 5;
             this.CloseExe.TabStop = false;

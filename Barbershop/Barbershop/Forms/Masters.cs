@@ -14,13 +14,14 @@ namespace Barbershop
 {
     public partial class Masters : Form
     {
+       
         
         public Masters()
         {
             InitializeComponent();
             ConnectionClass.GetConnect();
             MastersTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }       
+        }
        
         private void CloseExe_Click(object sender, EventArgs e)
         {
@@ -48,8 +49,10 @@ namespace Barbershop
         
         private void Masters_Load(object sender, EventArgs e)
         {
+           
             QueriesClass.SelectQuery(querySelectMasters, MastersTable);
             countMasters.Text = "Количество мастеров: "+(MastersTable.RowCount-1);
+         
         }
         int moveX, moveY, move;
         private void panel1_Masters_MouseDown(object sender, MouseEventArgs e)
@@ -57,6 +60,46 @@ namespace Barbershop
             move = 1;
             moveX = e.X;
             moveY = e.Y;
+        }
+
+        private void SearchField_TextChanged(object sender, EventArgs e)
+        {
+            string querySearh = "SELECT * FROM masters WHERE masters.Surname like '%"+SearchField.Text+ "%' or masters.Name like '%" + SearchField.Text + "%' or masters.Patronymic like '%" + SearchField.Text + "%' or masters.Phone like '%" + SearchField.Text + "%'";
+            QueriesClass.SelectQuery(querySearh, MastersTable);
+        }
+
+        private void редактироватьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var editForm = new EditMaster();
+            editForm.Show();                                                          //////////////////HELP
+          
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            int id_master = Convert.ToInt32(MastersTable.CurrentRow.Cells[0].Value);        //ID_master
+            
+            string queryDeleteMaster = "DELETE from masters WHERE masters.id_master =" + id_master;
+
+            DialogResult result = MessageBox.Show(
+                           "Вы действительно хотите удалить этого мастера?",
+                            "Подтверждение",
+                           MessageBoxButtons.YesNo,
+                           MessageBoxIcon.Question,
+                           MessageBoxDefaultButton.Button1,
+                           MessageBoxOptions.DefaultDesktopOnly);
+            // Проверяем какая кнопка нажата ...             
+            if (result == DialogResult.Yes)
+            {
+                QueriesClass.QuerytoTable(queryDeleteMaster);
+                QueriesClass.SelectQuery(querySelectMasters, MastersTable);
+            }
+            else
+            {
+                this.TopMost = true;
+            }// Ставим нашу форму по верх всех окон  
+            this.TopMost = true;
+
         }
 
         private void panel1_Masters_MouseMove(object sender, MouseEventArgs e)

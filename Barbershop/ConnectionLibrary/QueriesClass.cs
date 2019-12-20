@@ -14,15 +14,13 @@ namespace ConnectionLibrary
     /// </summary>
     public static class  QueriesClass
     {
-        //static List<string[]> donework = new List<string[]>();
-        //static List<string[]> masters = new List<string[]>();
-        //static List<string[]> service = new List<string[]>();
-        // static DataGridView InfoWorksTable;
-        static List<string[]> listName = new List<string[]>();
+       
+         static List<string[]> listName = new List<string[]>();
+       
         public static List<string[]> SelectQuery(string query, DataGridView table)
         {
             int countColumn = table.ColumnCount;
-            //List<string[]> listName = GetList(check);
+           
             //Open connection
             if (ConnectionClass.OpenConnection() == true)
             {
@@ -89,31 +87,46 @@ namespace ConnectionLibrary
                 return result;
             }
         }
+        public static List<string[]> SelectCombo(string query)
+        {
+            
+                //Open connection
+                if (ConnectionClass.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, ConnectionClass.connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                listName.Clear();
+                //Read the data and store them in the list
+                
+                while (dataReader.Read())
+                {
 
-        //private static List<string[]> GetList(int check)
-        //{
-        //    List<string[]> listName = new List<string[]>();
-        //    switch (check)
-        //    {
-        //        case 1:
-        //            {
-        //                listName = donework;
-        //                break;
-        //            }
-        //        case 2:                                                                    ПОХОЖЕ НАХЕР НАДО
-        //            {
-        //                listName = masters;
-        //                break;
-        //            }
-        //        case 3:
-        //            {
-        //                listName = service;
-        //                break;
-        //            }
 
-        //    }
-        //    return listName;
-        //}
+                    listName.Add(new string[1]);
+                    
+                        listName[listName.Count - 1][0] = dataReader[0].ToString(); //get info from DB tables depending on the count of columns
+                    
+
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                ConnectionClass.CloseConnection();
+
+                //return list to be displayed
+                return listName;
+            }
+            else
+            {
+                return listName;
+            }
+        }
+
+
         private static void RefreshInfo(DataGridView Info)
         {
            // List<string[]> listName = GetList(check);

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.CloseExe = new System.Windows.Forms.PictureBox();
             this.MastersTable = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MasterSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,10 +43,15 @@
             this.SearchField = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.countMasters = new System.Windows.Forms.ToolStripStatusLabel();
+            this.editContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.редактироватьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CloseExe = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MastersTable)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            this.editContextMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,7 +62,7 @@
             this.panel1.Controls.Add(this.CloseExe);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(982, 30);
+            this.panel1.Size = new System.Drawing.Size(923, 26);
             this.panel1.TabIndex = 6;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_Masters_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_Masters_MouseMove);
@@ -67,25 +72,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(279, 4);
+            this.label1.Location = new System.Drawing.Point(254, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(340, 23);
             this.label1.TabIndex = 6;
             this.label1.Text = "Состав мастеров парикмахерской";
-            // 
-            // CloseExe
-            // 
-            this.CloseExe.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.CloseExe.Image = global::Barbershop.Properties.Resources.multiply;
-            this.CloseExe.Location = new System.Drawing.Point(941, -1);
-            this.CloseExe.Name = "CloseExe";
-            this.CloseExe.Size = new System.Drawing.Size(28, 28);
-            this.CloseExe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CloseExe.TabIndex = 5;
-            this.CloseExe.TabStop = false;
-            this.CloseExe.Click += new System.EventHandler(this.CloseExe_Click);
-            this.CloseExe.MouseLeave += new System.EventHandler(this.CloseExe_MouseLeave);
-            this.CloseExe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CloseExe_MouseMove);
             // 
             // MastersTable
             // 
@@ -97,6 +88,7 @@
             this.Patronymic,
             this.Order,
             this.Sum});
+            this.MastersTable.ContextMenuStrip = this.editContextMenu;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -106,10 +98,11 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.MastersTable.DefaultCellStyle = dataGridViewCellStyle1;
             this.MastersTable.Location = new System.Drawing.Point(10, 58);
+            this.MastersTable.MultiSelect = false;
             this.MastersTable.Name = "MastersTable";
             this.MastersTable.RowHeadersWidth = 51;
             this.MastersTable.RowTemplate.Height = 24;
-            this.MastersTable.Size = new System.Drawing.Size(959, 242);
+            this.MastersTable.Size = new System.Drawing.Size(833, 273);
             this.MastersTable.TabIndex = 7;
             // 
             // ID
@@ -188,8 +181,9 @@
             this.SearchField.Location = new System.Drawing.Point(87, 31);
             this.SearchField.Multiline = true;
             this.SearchField.Name = "SearchField";
-            this.SearchField.Size = new System.Drawing.Size(882, 25);
+            this.SearchField.Size = new System.Drawing.Size(756, 25);
             this.SearchField.TabIndex = 10;
+            this.SearchField.TextChanged += new System.EventHandler(this.SearchField_TextChanged);
             // 
             // statusStrip1
             // 
@@ -197,9 +191,9 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.countMasters});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 426);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 408);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(981, 24);
+            this.statusStrip1.Size = new System.Drawing.Size(856, 24);
             this.statusStrip1.TabIndex = 12;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -210,12 +204,49 @@
             this.countMasters.Size = new System.Drawing.Size(181, 18);
             this.countMasters.Text = "Количество мастеров:";
             // 
+            // editContextMenu
+            // 
+            this.editContextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.editContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.редактироватьДанныеToolStripMenuItem,
+            this.удалитьToolStripMenuItem});
+            this.editContextMenu.Name = "editContextMenu";
+            this.editContextMenu.Size = new System.Drawing.Size(238, 52);
+            // 
+            // редактироватьДанныеToolStripMenuItem
+            // 
+            this.редактироватьДанныеToolStripMenuItem.Name = "редактироватьДанныеToolStripMenuItem";
+            this.редактироватьДанныеToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
+            this.редактироватьДанныеToolStripMenuItem.Text = "Редактировать данные";
+            this.редактироватьДанныеToolStripMenuItem.Click += new System.EventHandler(this.редактироватьДанныеToolStripMenuItem_Click);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(237, 24);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            // 
+            // CloseExe
+            // 
+            this.CloseExe.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CloseExe.Image = global::Barbershop.Properties.Resources.multiply;
+            this.CloseExe.Location = new System.Drawing.Point(818, 0);
+            this.CloseExe.Name = "CloseExe";
+            this.CloseExe.Size = new System.Drawing.Size(22, 22);
+            this.CloseExe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CloseExe.TabIndex = 5;
+            this.CloseExe.TabStop = false;
+            this.CloseExe.Click += new System.EventHandler(this.CloseExe_Click);
+            this.CloseExe.MouseLeave += new System.EventHandler(this.CloseExe_MouseLeave);
+            this.CloseExe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CloseExe_MouseMove);
+            // 
             // Masters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(981, 450);
+            this.ClientSize = new System.Drawing.Size(856, 432);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SearchField);
@@ -231,10 +262,11 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_Masters_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MastersTable)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.editContextMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +287,8 @@
         private System.Windows.Forms.TextBox SearchField;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel countMasters;
+        private System.Windows.Forms.ContextMenuStrip editContextMenu;
+        private System.Windows.Forms.ToolStripMenuItem редактироватьДанныеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
     }
 }

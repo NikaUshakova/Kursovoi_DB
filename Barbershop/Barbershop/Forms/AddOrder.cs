@@ -48,7 +48,7 @@ namespace Barbershop
 
         private void AddOrder_Load(object sender, EventArgs e)
         {
-            string querySelMasters = "SELECT id_master, Concat_ws(' ',surname,name,patronymic )  FROM masters";
+                          string querySelMasters = "SELECT id_master, Concat_ws(' ',surname,name,patronymic )  FROM masters";
             QueriesClass.SelectQuery(querySelMasters, TableSelectMasters);
             string querySelService = "SELECT id_service, name_service, service.price  FROM service";
             QueriesClass.SelectQuery(querySelService, TableSelectService);
@@ -86,83 +86,140 @@ namespace Barbershop
         private void yes_Click(object sender, EventArgs e)
         {
             string service = "";
-            
-            if (TableSelectService.CurrentRow.Index == TableSelectService.Rows.Count-1)
+            if (TableSelectService.CurrentRow.Index == TableSelectService.Rows.Count - 1)
             {
                 MessageBox.Show(TableSelectService.CurrentRow.Index.ToString());
-                MessageBox.Show("Была выбрана пустая строка! Выберите услугу для оформления заказа!", "");
+                MessageBox.Show("Была выбрана пустая строка! Выберите услугу для заказа!", "Attention");
                 return;
             }
             else
             {
+                
                 foreach (DataGridViewRow dr in TableSelectService.SelectedRows)
                 {
                     service = dr.Cells[1].Value.ToString();        //name_service
-                }             
-                listBox.Items.Add(service);
-                // MessageBox.Show(TableSelectService.Rows.Count.ToString());
-               
+                    listBox.Items.Add(service);
+                }
             }
+                // MessageBox.Show(TableSelectService.Rows.Count.ToString());
+            
+        }
+         
+        //private int Special()
+        //{
+        //    int specialPay = 0;
+        //    string service = "";
+        //    foreach (DataGridViewRow dr in TableSelectService.SelectedRows)
+        //    {
+        //        service = dr.Cells[1].Value.ToString();        //name_service                
+        //    }
+        //    if (service == "Сложное окрашивание" || service == "Окрашивание волос")
+        //    {
+        //        Choose.Enabled = true;
+        //        if (shortBtn.Checked & ownBtn.Checked)                     //начальная 80/35р, в зависимости от длины добавляется 15р
+        //        {
+        //            specialPay = 0;
+        //            Choose.Enabled = false;
+        //        }
+        //        else if (shortBtn.Checked & salonBtn.Checked)                    //при использовании салонной краски добавляется 30р
+        //        {
+        //            specialPay = 30;
+        //            Choose.Enabled = false;
+        //        }
+        //        else if (avgBtn.Checked & ownBtn.Checked)
+        //        {
+        //            specialPay = 15;
+        //            Choose.Enabled = false;
+        //        }
+        //        if (avgBtn.Checked & salonBtn.Checked)
+        //        {
+        //            specialPay = 15 + 30;
+        //            Choose.Enabled = false;
+        //        }
+        //        else if (longBtn.Checked & ownBtn.Checked)
+        //        {
+        //            specialPay = 30;
+        //            Choose.Enabled = false;
+        //        }
+        //        else if (longBtn.Checked & salonBtn.Checked)
+        //        {
+        //            specialPay = 30 + 30;
+        //            Choose.Enabled = false;
+        //        }
+        //        else
+        //        {
+        //            specialPay = 0;
+        //            MessageBox.Show("Необходимо выбрать подробную информацию об окрашивании. Выберите длину волос и краску!");
+        //        }
+        //        MessageBox.Show("че вышло= " + specialPay + " ");
+        //    }
+        //    return specialPay;
+        //}
+       
+        private void TableSelectService_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Special();
         }
         private void Summ_Click(object sender, EventArgs e)
         {
-            string query ;
             string service_name;
+            //MessageBox.Show(listBox.Items.Count.ToString());
+            string query;
+           
             int[] price= new int[listBox.Items.Count] ;
             int sum=0;
             for (int i = 0; i < listBox.Items.Count; i++)
             {
-                
                 service_name = listBox.Items[i].ToString();
-                query = "SELECT price FROM service WHERE service.name_service = '" + service_name + "';";
-                price[i] = int.Parse(QueriesClass.SelectLabel(query));
-               // MessageBox.Show(price[i].ToString());
+                query = "SELECT price FROM service WHERE service.name_service = '" + service_name + "';";                
+                price[i] = int.Parse(QueriesClass.SelectLabel(query));      //+Special()
+                MessageBox.Show(price[i].ToString());
+                
                 sum += price[i];
                 
             }
             OrderSum.Text = "Общая сумма заказа: " + sum + " бел.руб";
         }
-        private void InsOrder_Click(object sender, EventArgs e)
-        {
-            DateTime day = monthCalendar1.SelectionStart;
-        
-            int IdMaster = 0;
-            int IdOrder;
-            string queryIDorder;
-            foreach (DataGridViewRow dr in TableSelectMasters.SelectedRows)
-            {
-                IdMaster = Convert.ToInt32(dr.Cells[0].Value);        //ID_master
-            }
-           // MessageBox.Show("id мастера " + IdMaster.ToString());
+        private void InsOrder_Click(object sender, EventArgs e) 
+        {           
+                DateTime day = monthCalendar1.SelectionStart;
            
-            string InsertOrder = "INSERT INTO orders VALUES (0,'"+ day.ToShortDateString() + "',"+IdMaster+")";
-            QueriesClass.QuerytoTable(InsertOrder);
+                int IdMaster = 0;
+                int IdOrder;
+                string queryIDorder;
+                foreach (DataGridViewRow dr in TableSelectMasters.SelectedRows)
+                {
+                    IdMaster = Convert.ToInt32(dr.Cells[0].Value);        //ID_master
+                }
+               // MessageBox.Show("id мастера " + IdMaster.ToString());
            
-            queryIDorder = "SELECT last_insert_id(orders.id_order) FROM orders ORDER BY orders.id_order desc LIMIT 1"; // Get ID of last order
-            //MessageBox.Show("Сейчас кину ошибку");
-            IdOrder = int.Parse(QueriesClass.SelectLabel(queryIDorder));       //ID_order
+                string InsertOrder = "INSERT INTO orders VALUES (0,concat_ws('-', "+ day.Year + ", " + day.Month + ","+ day.Day + "),"+IdMaster+")";
+                QueriesClass.QuerytoTable(InsertOrder);
            
+                queryIDorder = "SELECT last_insert_id(orders.id_order) FROM orders ORDER BY orders.id_order desc LIMIT 1"; // Get ID of last order
+                //MessageBox.Show("Сейчас кину ошибку");
+                IdOrder = int.Parse(QueriesClass.SelectLabel(queryIDorder));       //ID_order           
            
-            string InsertOrder_Service;
-            string queryIDservice, service_name;  //field for queries
-            int IdService;
+                string InsertOrder_Service;
+                string queryIDservice, service_name;  //field for queries
+                int IdService;
             
-            for (int i = 0; i < listBox.Items.Count; i++)
-            {
-                service_name = listBox.Items[i].ToString();
-                queryIDservice = "SELECT service.id_service FROM service WHERE service.name_service = '" + service_name + "';";      //Get service ID
+                for (int i = 0; i < listBox.Items.Count; i++)
+                {
+                    service_name = listBox.Items[i].ToString();
+                    queryIDservice = "SELECT service.id_service FROM service WHERE service.name_service = '" + service_name + "';";      //Get service ID
                 
-                IdService = int.Parse(QueriesClass.SelectLabel(queryIDservice));       //ID_service
+                    IdService = int.Parse(QueriesClass.SelectLabel(queryIDservice));       //ID_service
              
-               // MessageBox.Show("id услуги "+IdService.ToString());
-               // MessageBox.Show("id заказа " + IdOrder.ToString());
+                   // MessageBox.Show("id услуги "+IdService.ToString());
+                   // MessageBox.Show("id заказа " + IdOrder.ToString());
 
-                InsertOrder_Service = "INSERT INTO order_service  VALUES (0," + IdOrder + "," + IdService + ")";  //Add fields in Order_service table
-                QueriesClass.QuerytoTable(InsertOrder_Service);
-            }
+                    InsertOrder_Service = "INSERT INTO order_service  VALUES (0," + IdOrder + "," + IdService + ")";  //Add fields in Order_service table
+                    QueriesClass.QuerytoTable(InsertOrder_Service);
+                }
             MessageBox.Show("Добавлено");
             Reset();
-
+            
         }
 
         private void No_Click(object sender, EventArgs e)
@@ -185,7 +242,7 @@ namespace Barbershop
                 {
                     master = dr.Cells[1].Value.ToString();        //master
                     OrderMaster.Text = "Мастер: " + master;
-                }
+                }                
             }
         }
 
@@ -194,6 +251,8 @@ namespace Barbershop
             DateTime day = monthCalendar1.SelectionStart;
             OrderDate.Text = "Дата проведения: " + day.ToShortDateString();   //ShortDate
         }
+
+       
 
         private void panel1_AddOrder_MouseMove(object sender, MouseEventArgs e)
         {
