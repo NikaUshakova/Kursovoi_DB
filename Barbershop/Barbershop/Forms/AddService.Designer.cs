@@ -93,7 +93,7 @@
             // 
             this.nameService.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nameService.Location = new System.Drawing.Point(123, 51);
-            this.nameService.MaxLength = 100;
+            this.nameService.MaxLength = 150;
             this.nameService.Multiline = true;
             this.nameService.Name = "nameService";
             this.nameService.Size = new System.Drawing.Size(311, 25);
@@ -117,9 +117,9 @@
             this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(15, 98);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 20);
+            this.label3.Size = new System.Drawing.Size(112, 20);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Цена(б.р):";
+            this.label3.Text = "Цена(BYN):";
             // 
             // resetBtn
             // 

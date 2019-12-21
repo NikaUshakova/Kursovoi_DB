@@ -12,12 +12,12 @@ using ConnectionLibrary;
 
 namespace Barbershop
 {
-    public partial class EditMaster : Form
+    public partial class EditService : Form
     {
-        private readonly int id_master;
-        public EditMaster(int id)
+        private readonly int id_service;
+        public EditService(int id)
         {
-            id_master = id;
+            id_service = id;
             InitializeComponent();
             ConnectionClass.GetConnect();
           
@@ -25,8 +25,7 @@ namespace Barbershop
        
         private void CloseExe_Click(object sender, EventArgs e)
         {
-            
-            MastersServices mas = new MastersServices();
+           var mas = new MastersServices();
             mas.Show();
             this.Close();
         }
@@ -47,13 +46,13 @@ namespace Barbershop
         /// </summary>       
        
 
-        private void EditMaster_Load(object sender, EventArgs e)           
+        private void EditService_Load(object sender, EventArgs e)           
         {              
-            LoadInf(id_master);           
+            LoadInf(id_service);           
         }
         public void LoadInf(int id_master)
         {            
-            string query = "SELECT * FROM masters WHERE masters.id_master=" + id_master; 
+            string query = "SELECT * FROM service WHERE service.id_service=" + id_service; 
             if (ConnectionClass.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, ConnectionClass.connection);
@@ -61,11 +60,8 @@ namespace Barbershop
 
                 while (dataReader.Read())
                 {
-                    surname.Text = dataReader[1].ToString();
-                    nameTB.Text = dataReader[2].ToString();
-                    patronymic.Text = dataReader[3].ToString();
-                    adress.Text = dataReader[4].ToString();
-                    phoneNumber.Text = dataReader[5].ToString();
+                    nameService.Text = dataReader[1].ToString();
+                    price.Text = dataReader[2].ToString();
                 }
                 dataReader.Close();
                 ConnectionClass.connection.Close();
@@ -74,44 +70,35 @@ namespace Barbershop
 
         private void save_Click(object sender, EventArgs e)
         {
-            string sur = surname.Text;
-            string name = nameTB.Text;
-            string patro = patronymic.Text;
-            string adr = adress.Text;
-            string ph = phoneNumber.Text;
-            string queryUpdate = "UPDATE masters SET Surname = '"+sur+ "', Name = '" + name + "', Patronymic = '" + patro + "', Adress = '" + 
-                                  adr + "', Phone = '" + ph + "' WHERE (id_master = " + id_master + ");";
+            string ser = nameService.Text;
+            int pr = int.Parse(price.Text);
+           
+            string queryUpdate = "UPDATE service SET name_service = '"+ser+ "', price = " + pr + " WHERE (id_service = " + id_service + ");";
             QueriesClass.QuerytoTable(queryUpdate);
             MessageBox.Show("Изменения сохранены!");
             this.Hide();
 
-           MastersServices mas = new MastersServices();
+            MastersServices mas = new MastersServices();
             mas.Show();
         }
 
       
 
-        private void phoneNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void price_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != '(' && e.KeyChar != ')' && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Delete && !(e.KeyChar == ',' && e.KeyChar == '/'))
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Delete && !(e.KeyChar == ',' && e.KeyChar == '/'))
                 e.Handled = true;
             return;
         }
 
-        private void patronymic_name_surname_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsLetter(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Delete && e.KeyChar != (char)Keys.Space && e.KeyChar != '-')
-                e.Handled = true;
-            return;
-        }
         int moveX, moveY, move;
 
-        private void panel1_EditMaster_MouseUp(object sender, MouseEventArgs e)
+        private void panel1_EditService_MouseUp(object sender, MouseEventArgs e)
         {
             move = 0;
         }
 
-        private void panel1_EditMaster_MouseMove(object sender, MouseEventArgs e)
+        private void panel1_EditService_MouseMove(object sender, MouseEventArgs e)
         {
             if (move == 1)
             {
@@ -119,7 +106,7 @@ namespace Barbershop
             }
         }
 
-        private void panel1_EditMaster_MouseDown(object sender, MouseEventArgs e)
+        private void panel1_EditService_MouseDown(object sender, MouseEventArgs e)
         {
             move = 1;
             moveX = e.X;

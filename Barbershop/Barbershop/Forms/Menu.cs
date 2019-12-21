@@ -51,7 +51,7 @@ namespace Barbershop
 
         private void MastersBtn_Click(object sender, EventArgs e)
         {
-            Masters formMasters = new Masters();
+            MastersServices formMasters = new MastersServices();
             formMasters.Show();
             this.Hide();
         }

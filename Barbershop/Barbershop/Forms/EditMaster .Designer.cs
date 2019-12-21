@@ -171,7 +171,7 @@
             // 
             this.phoneNumber.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.phoneNumber.Location = new System.Drawing.Point(129, 221);
-            this.phoneNumber.MaxLength = 7;
+            this.phoneNumber.MaxLength = 15;
             this.phoneNumber.Multiline = true;
             this.phoneNumber.Name = "phoneNumber";
             this.phoneNumber.Size = new System.Drawing.Size(311, 25);

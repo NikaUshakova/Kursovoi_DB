@@ -52,7 +52,7 @@
             this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(438, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(438, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseDown);
             this.menuStrip1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseMove);
@@ -61,13 +61,13 @@
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(97, 26);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             // 
             // AddServiceForm
@@ -76,12 +76,12 @@
             this.AddServiceForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddServiceForm.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddServiceForm.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AddServiceForm.Image = global::Barbershop.Properties.Resources.pencil;
+            this.AddServiceForm.Image = global::Barbershop.Properties.Resources.add;
             this.AddServiceForm.Location = new System.Drawing.Point(12, 375);
             this.AddServiceForm.Name = "AddServiceForm";
             this.AddServiceForm.Size = new System.Drawing.Size(414, 101);
             this.AddServiceForm.TabIndex = 4;
-            this.AddServiceForm.Text = "Добавление услуги";
+            this.AddServiceForm.Text = "Добавление услуги      ";
             this.AddServiceForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddServiceForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.AddServiceForm.UseVisualStyleBackColor = false;
@@ -112,7 +112,7 @@
             this.StatisticForm.Name = "StatisticForm";
             this.StatisticForm.Size = new System.Drawing.Size(414, 101);
             this.StatisticForm.TabIndex = 5;
-            this.StatisticForm.Text = "Статистика            ";
+            this.StatisticForm.Text = "Статистика                  ";
             this.StatisticForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StatisticForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.StatisticForm.UseVisualStyleBackColor = false;
@@ -128,7 +128,7 @@
             this.AddMasterForm.Name = "AddMasterForm";
             this.AddMasterForm.Size = new System.Drawing.Size(414, 101);
             this.AddMasterForm.TabIndex = 3;
-            this.AddMasterForm.Text = "Добавление мастера";
+            this.AddMasterForm.Text = "Добавление мастера    ";
             this.AddMasterForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddMasterForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.AddMasterForm.UseVisualStyleBackColor = false;
@@ -140,12 +140,13 @@
             this.MastersForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MastersForm.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MastersForm.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.MastersForm.Image = global::Barbershop.Properties.Resources.add;
+            this.MastersForm.Image = global::Barbershop.Properties.Resources.list70;
+            this.MastersForm.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.MastersForm.Location = new System.Drawing.Point(12, 162);
             this.MastersForm.Name = "MastersForm";
             this.MastersForm.Size = new System.Drawing.Size(414, 101);
             this.MastersForm.TabIndex = 2;
-            this.MastersForm.Text = "Список мастеров      ";
+            this.MastersForm.Text = "Список мастеров и услуг  ";
             this.MastersForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MastersForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.MastersForm.UseVisualStyleBackColor = false;
@@ -157,7 +158,8 @@
             this.OrdersForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OrdersForm.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.OrdersForm.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.OrdersForm.Image = global::Barbershop.Properties.Resources.check;
+            this.OrdersForm.Image = global::Barbershop.Properties.Resources.all;
+            this.OrdersForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.OrdersForm.Location = new System.Drawing.Point(12, 56);
             this.OrdersForm.Name = "OrdersForm";
             this.OrdersForm.Size = new System.Drawing.Size(414, 101);

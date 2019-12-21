@@ -83,6 +83,16 @@ namespace Barbershop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap all {
+            get {
+                object obj = ResourceManager.GetObject("all", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap analytics70 {
             get {
                 object obj = ResourceManager.GetObject("analytics70", resourceCulture);
@@ -96,6 +106,16 @@ namespace Barbershop.Properties {
         internal static System.Drawing.Bitmap check {
             get {
                 object obj = ResourceManager.GetObject("check", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap database {
+            get {
+                object obj = ResourceManager.GetObject("database", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +146,16 @@ namespace Barbershop.Properties {
         internal static System.Drawing.Bitmap left {
             get {
                 object obj = ResourceManager.GetObject("left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap list70 {
+            get {
+                object obj = ResourceManager.GetObject("list70", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,16 +196,6 @@ namespace Barbershop.Properties {
         internal static System.Drawing.Bitmap new_user {
             get {
                 object obj = ResourceManager.GetObject("new-user", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pencil {
-            get {
-                object obj = ResourceManager.GetObject("pencil", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

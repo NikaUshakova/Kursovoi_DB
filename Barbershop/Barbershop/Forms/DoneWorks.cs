@@ -27,8 +27,7 @@ namespace Barbershop
         {            
             Menu menu = new Menu();
             this.Hide();
-            menu.Show();
-            
+            menu.Show();            
         }
        
         private void CloseExe_MouseLeave(object sender, EventArgs e)
@@ -135,13 +134,13 @@ namespace Barbershop
             if (comboService.SelectedIndex > -1)
             {
                 comboFIO.SelectedIndex = -1;
-                string querySelService = "SELECT orders.id_order,masters.Surname,masters.Name,masters.Patronymic,Group_concat(service.name_service SEPARATOR ', ')," +
-                                  " sum(service.price) ,concat_ws('-',day(orders.Date),month(orders.Date),year(orders.Date))" +
+                string querySelService = "SELECT orders.id_order,masters.Surname,masters.Name,masters.Patronymic,Group_concat(service.name_service SEPARATOR ', '), " +
+                                  "sum(service.price) ,concat_ws('-',day(orders.Date),month(orders.Date),year(orders.Date))" +
                     " FROM service INNER JOIN order_service ON service.id_service=order_service.id_service " +
-                    " INNER JOIN orders ON orders.id_order= order_service.id_order" +
+                    " INNER JOIN orders ON orders.id_order= order_service.id_order " +
                     " INNER JOIN masters ON masters.id_master = orders.id_master" +
-                    " WHERE service.name_service = '"+comboService.SelectedItem.ToString()+"'" +                 //sosat
-                    " GROUP BY order_service.id_order";
+                    " GROUP BY order_service.id_order" +                 //sosat
+                    " having INSTR(Group_concat(service.name_service SEPARATOR ', '), '"+comboService.Text +"') > 0 ";
             QueriesClass.SelectQuery(querySelService, InfoWorks);
             }
             else
@@ -184,7 +183,7 @@ namespace Barbershop
             return;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void resetFilters_Click(object sender, EventArgs e)
         {
             comboFIO.SelectedIndex = -1;
             comboService.SelectedIndex = -1;
@@ -200,6 +199,7 @@ namespace Barbershop
         {
             AddOrder newOrder = new AddOrder();
             newOrder.Show();
+            this.Hide();
           
         }
     }

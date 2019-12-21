@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\EditService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditService.Designer.cs">
+      <DependentUpon>EditService.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditMaster .cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,11 +83,11 @@
     <Compile Include="Forms\AddMaster.Designer.cs">
       <DependentUpon>AddMaster.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Masters.cs">
+    <Compile Include="Forms\MastersServices.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Masters.Designer.cs">
-      <DependentUpon>Masters.cs</DependentUpon>
+    <Compile Include="Forms\MastersServices.Designer.cs">
+      <DependentUpon>MastersServices.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DoneWorks.cs">
       <SubType>Form</SubType>
@@ -97,6 +103,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\EditService.resx">
+      <DependentUpon>EditService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditMaster .resx">
       <DependentUpon>EditMaster .cs</DependentUpon>
     </EmbeddedResource>
@@ -112,8 +121,8 @@
     <EmbeddedResource Include="Forms\AddMaster.resx">
       <DependentUpon>AddMaster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Masters.resx">
-      <DependentUpon>Masters.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MastersServices.resx">
+      <DependentUpon>MastersServices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DoneWorks.resx">
       <DependentUpon>DoneWorks.cs</DependentUpon>
@@ -194,6 +203,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete%2840%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\all1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list701.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analytics701.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
