@@ -62,7 +62,15 @@ namespace Barbershop
                             {
                                  queryInsertService = "Insert into service VALUES(0,'" + nameService.Text + "'," + int.Parse(price.Text) + ");";
                                  QueriesClass.QuerytoTable(queryInsertService);
-                                 Reset();
+                        DialogResult result = MessageBox.Show(
+                          "Услуга добавлена!",
+                           "Well",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information,
+                          MessageBoxDefaultButton.Button1,
+                          MessageBoxOptions.DefaultDesktopOnly);
+                        this.TopMost = true;
+                        Reset();
                             }
                             else
                             {

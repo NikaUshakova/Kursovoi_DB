@@ -53,10 +53,7 @@ namespace Barbershop
             string querySelService = "SELECT id_service, name_service, service.price  FROM service";
             QueriesClass.SelectQuery(querySelService, TableSelectService);
             Reset();
-        }
-
-
-        
+        }        
 
         private void Reset()
         {
@@ -88,8 +85,16 @@ namespace Barbershop
             string service = "";
             if (TableSelectService.CurrentRow.Index == TableSelectService.Rows.Count - 1)
             {
-                MessageBox.Show(TableSelectService.CurrentRow.Index.ToString());
-                MessageBox.Show("Была выбрана пустая строка! Выберите услугу для заказа!", "Attention");
+                //MessageBox.Show(TableSelectService.CurrentRow.Index.ToString());
+               
+                DialogResult result = MessageBox.Show(
+                             "Была выбрана пустая строка! Выберите услугу для заказа!",
+                              "Attention",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Warning,
+                             MessageBoxDefaultButton.Button1,
+                             MessageBoxOptions.DefaultDesktopOnly);
+                this.TopMost = true;
                 return;
             }
             else
@@ -173,12 +178,12 @@ namespace Barbershop
                 service_name = listBox.Items[i].ToString();
                 query = "SELECT price FROM service WHERE service.name_service = '" + service_name + "';";                
                 price[i] = int.Parse(QueriesClass.SelectLabel(query));      //+Special()
-                MessageBox.Show(price[i].ToString());
+                //MessageBox.Show(price[i].ToString());
                 
                 sum += price[i];
                 
             }
-            OrderSum.Text = "Общая сумма заказа: " + sum + " бел.руб";
+            OrderSum.Text =  sum + "BYN";
         }
         private void InsOrder_Click(object sender, EventArgs e) 
         {           
@@ -203,22 +208,43 @@ namespace Barbershop
                 string InsertOrder_Service;
                 string queryIDservice, service_name;  //field for queries
                 int IdService;
-            
+            if (listBox.Items.Count > 0 && TableSelectService.CurrentRow.Index != -1 && TableSelectMasters.CurrentRow.Index != -1)
+            {
                 for (int i = 0; i < listBox.Items.Count; i++)
                 {
                     service_name = listBox.Items[i].ToString();
                     queryIDservice = "SELECT service.id_service FROM service WHERE service.name_service = '" + service_name + "';";      //Get service ID
-                
+
                     IdService = int.Parse(QueriesClass.SelectLabel(queryIDservice));       //ID_service
-             
-                   // MessageBox.Show("id услуги "+IdService.ToString());
-                   // MessageBox.Show("id заказа " + IdOrder.ToString());
+
+                    // MessageBox.Show("id услуги "+IdService.ToString());
+                    // MessageBox.Show("id заказа " + IdOrder.ToString());
 
                     InsertOrder_Service = "INSERT INTO order_service  VALUES (0," + IdOrder + "," + IdService + ")";  //Add fields in Order_service table
                     QueriesClass.QuerytoTable(InsertOrder_Service);
                 }
-            MessageBox.Show("Добавлено");
-            Reset();
+                DialogResult result = MessageBox.Show(
+                           "Заказ добавлен!",
+                            "Well",
+                           MessageBoxButtons.OK,
+                           MessageBoxIcon.Information,
+                           MessageBoxDefaultButton.Button1,
+                           MessageBoxOptions.DefaultDesktopOnly);
+                this.TopMost = true;
+                Reset();
+            }
+            else 
+            {
+                DialogResult result = MessageBox.Show(
+                             "Для оформления заказа выберите услуги, мастера и дату проведения!",
+                              "Attention",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Warning,
+                             MessageBoxDefaultButton.Button1,
+                             MessageBoxOptions.DefaultDesktopOnly);
+                this.TopMost = true;
+                return;
+            }
             
         }
 
@@ -232,8 +258,16 @@ namespace Barbershop
             string master = "";
             if (TableSelectMasters.CurrentRow.Index == TableSelectMasters.Rows.Count - 1)
             {
-                MessageBox.Show(TableSelectMasters.CurrentRow.Index.ToString());
-                MessageBox.Show("Была выбрана пустая строка! Выберите мастера, который выполнит заказ!", "Attention");
+              //  MessageBox.Show(TableSelectMasters.CurrentRow.Index.ToString());
+                
+                DialogResult result = MessageBox.Show(
+                             "Была выбрана пустая строка! Выберите мастера, который выполнит заказ!",
+                              "Attention",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Warning,
+                             MessageBoxDefaultButton.Button1,
+                             MessageBoxOptions.DefaultDesktopOnly);
+                this.TopMost = true;
                 return;
             }
             else
@@ -241,7 +275,7 @@ namespace Barbershop
                 foreach (DataGridViewRow dr in TableSelectMasters.SelectedRows)
                 {
                     master = dr.Cells[1].Value.ToString();        //master
-                    OrderMaster.Text = "Мастер: " + master;
+                    OrderMaster.Text =  master;
                 }                
             }
         }
@@ -249,7 +283,7 @@ namespace Barbershop
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             DateTime day = monthCalendar1.SelectionStart;
-            OrderDate.Text = "Дата проведения: " + day.ToShortDateString();   //ShortDate
+            OrderDate.Text = day.ToShortDateString();   //ShortDate
         }
 
        

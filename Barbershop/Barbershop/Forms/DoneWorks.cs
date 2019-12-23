@@ -47,17 +47,22 @@ namespace Barbershop
                   " INNER JOIN masters ON masters.id_master = orders.id_master" +
                   " GROUP BY order_service.id_order";
 
-
-        private void DoneWorks_Load(object sender, EventArgs e)
-        {           
-            int total = 0;            
-            QueriesClass.SelectQuery(querySelectOrders, InfoWorks); 
-            countWorks.Text= "Количество выполненных работ: " + (InfoWorks.RowCount-1);            
+        private int Total()
+        {
+            int total = 0;
             for (int i = 0; i < InfoWorks.Rows.Count; i++)
             {
-                total += Convert.ToInt32( InfoWorks.Rows[i].Cells[5].Value);
-            }      
-            summLine.Text = "Сумма: " + total+"BYN";
+                total += Convert.ToInt32(InfoWorks.Rows[i].Cells[5].Value);
+            }
+            return total;
+        }
+        private void DoneWorks_Load(object sender, EventArgs e)
+        {           
+                        
+            QueriesClass.SelectQuery(querySelectOrders, InfoWorks); 
+            countWorks.Text= "Количество выполненных работ: " + (InfoWorks.RowCount-1);
+               
+            summLine.Text = "Сумма: " + Total()+"BYN";
             ////////////////////////////////////////////////////////////////////////////                          WELL, MY BRAIN IS BROKEN
             string querycount = "Select count(*) FROM masters";
             string querycountser = "Select count(*) FROM service";
@@ -131,6 +136,7 @@ namespace Barbershop
 
         private void comboService_SelectedIndexChanged(object sender, EventArgs e)
         {
+          //  Filter();
             if (comboService.SelectedIndex > -1)
             {
                 comboFIO.SelectedIndex = -1;
@@ -140,18 +146,57 @@ namespace Barbershop
                     " INNER JOIN orders ON orders.id_order= order_service.id_order " +
                     " INNER JOIN masters ON masters.id_master = orders.id_master" +
                     " GROUP BY order_service.id_order" +                 //sosat
-                    " having INSTR(Group_concat(service.name_service SEPARATOR ', '), '"+comboService.Text +"') > 0 ";
-            QueriesClass.SelectQuery(querySelService, InfoWorks);
+                    " having INSTR(Group_concat(service.name_service SEPARATOR ', '), '" + comboService.Text + "') > 0 ";
+                QueriesClass.SelectQuery(querySelService, InfoWorks);
             }
             else
             {
                 QueriesClass.SelectQuery(querySelectOrders, InfoWorks);
             }
+            countWorks.Text = "Количество выполненных работ: " + (InfoWorks.RowCount - 1);
+            summLine.Text = "Сумма: " + Total() + "BYN";
         }
 
-        
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //private void Filter()
+        //{
+        //    try
+        //    {
+        //        string FIO = comboFIO.SelectedItem.ToString();
+        //        string[] arrFIO = FIO.Split(' ');
+        //        string surname = arrFIO[0];
+        //        string name = arrFIO[1];
+        //        string patronymic = arrFIO[2];
+        //        string date1 = dateTimePicker1.Value.Year.ToString() + dateTimePicker1.Value.Month.ToString() + dateTimePicker1.Value.Day.ToString();
+        //        string date2 = dateTimePicker2.Value.Year.ToString() + dateTimePicker2.Value.Month.ToString() + dateTimePicker2.Value.Day.ToString();
+        //        if (comboService.SelectedIndex > -1 && comboFIO.SelectedIndex > -1 && firstPrice.Text != "" && secondPrice.Text != "")
+        //        {
+        //            // comboFIO.SelectedIndex = -1;
+        //            string querySelService = "SELECT orders.id_order,masters.Surname,masters.Name,masters.Patronymic,Group_concat(service.name_service SEPARATOR ', '), " +
+        //                              "sum(service.price) ,concat_ws('-',day(orders.Date),month(orders.Date),year(orders.Date))" +
+        //                " FROM service INNER JOIN order_service ON service.id_service=order_service.id_service " +
+        //                " INNER JOIN orders ON orders.id_order= order_service.id_order " +
+        //                " INNER JOIN masters ON masters.id_master = orders.id_master" +
+        //                " WHERE  (orders.Date BETWEEN '" + date1 + "' AND '" + date2 + "') AND masters.Surname = '" + surname + "'AND masters.Name = '" + name + "'AND masters.Patronymic = '" + patronymic + "'" +
+        //                " GROUP BY order_service.id_order" +                 //sosat
+        //                " having INSTR(Group_concat(service.name_service SEPARATOR ', '), '" + comboService.Text + "') > 0 AND " +
+        //                " (sum(service.Price) BETWEEN " + int.Parse(firstPrice.Text) + " AND " + int.Parse(secondPrice.Text)+")";
+
+        //            QueriesClass.SelectQuery(querySelService, InfoWorks);
+        //        }
+        //        else
+        //        {
+        //            QueriesClass.SelectQuery(querySelectOrders, InfoWorks);
+        //        }
+        //    }
+        //    catch { }
+        //}
+
+        /// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         private void comboFIO_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Filter();
             if (comboFIO.SelectedIndex > -1)
             {
                 comboService.SelectedIndex = -1;
@@ -160,7 +205,7 @@ namespace Barbershop
                 string surname = arrFIO[0];
                 string name = arrFIO[1];
                 string patronymic = arrFIO[2];
-                MessageBox.Show(FIO);
+                // MessageBox.Show(FIO);
                 string querySelMaster = "SELECT orders.id_order,masters.Surname,masters.Name,masters.Patronymic,Group_concat(service.name_service SEPARATOR ', ')," +
                                      " sum(service.price) ,concat_ws('-',day(orders.Date),month(orders.Date),year(orders.Date))" +
                        " FROM service INNER JOIN order_service ON service.id_service=order_service.id_service " +
@@ -174,11 +219,13 @@ namespace Barbershop
             {
                 QueriesClass.SelectQuery(querySelectOrders, InfoWorks);
             }
+            countWorks.Text = "Количество выполненных работ: " + (InfoWorks.RowCount - 1);
+            summLine.Text = "Сумма: " + Total() + "BYN";
         }
 
         private void firstPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Delete && !(e.KeyChar == ',' && e.KeyChar == '/'))
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != '.' && e.KeyChar != (char)Keys.Delete && !(e.KeyChar == ',' && e.KeyChar == '/'))
                 e.Handled = true;
             return;
         }
@@ -187,6 +234,118 @@ namespace Barbershop
         {
             comboFIO.SelectedIndex = -1;
             comboService.SelectedIndex = -1;
+            dateTimePicker2.Value = dateTimePicker1.Value;
+            QueriesClass.SelectQuery(querySelectOrders, InfoWorks);
+            firstPrice.Text = "";
+            secondPrice.Text = "";
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            int id_order = Convert.ToInt32(InfoWorks.CurrentRow.Cells[0].Value);        //ID_order
+
+            string queryDelOrder = "DELETE from orders WHERE orders.id_order =" + id_order;
+
+            DialogResult result = MessageBox.Show(
+                           "Вы действительно хотите удалить выбранный заказ?",
+                            "Подтверждение",
+                           MessageBoxButtons.YesNo,
+                           MessageBoxIcon.Question,
+                           MessageBoxDefaultButton.Button1,
+                           MessageBoxOptions.DefaultDesktopOnly);
+            // Проверяем какая кнопка нажата ...             
+            if (result == DialogResult.Yes)
+            {
+                QueriesClass.QuerytoTable(queryDelOrder);
+                QueriesClass.SelectQuery(querySelectOrders, InfoWorks);
+            }
+            else
+            {
+                this.TopMost = true;
+            }// Ставим нашу форму по верх всех окон  
+            this.TopMost = true;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            string date1 = dateTimePicker1.Value.Year.ToString() + dateTimePicker1.Value.Month.ToString() + dateTimePicker1.Value.Day.ToString();
+            string date2 = dateTimePicker2.Value.Year.ToString() + dateTimePicker2.Value.Month.ToString() + dateTimePicker2.Value.Day.ToString();
+
+            string querySeldate = "SELECT orders.id_order,masters.Surname,masters.Name,masters.Patronymic,Group_concat(service.name_service SEPARATOR ', ')," +
+                                  " sum(service.price) ,concat_ws('-',day(orders.Date),month(orders.Date),year(orders.Date))" +
+                    " FROM service INNER JOIN order_service ON service.id_service=order_service.id_service " +
+                    " INNER JOIN orders ON orders.id_order= order_service.id_order" +
+                    " INNER JOIN masters ON masters.id_master = orders.id_master" +
+                    " WHERE  orders.Date BETWEEN '" + date1 + "' AND '" + date2 + "'" +                 //sosat
+                    " GROUP BY order_service.id_order";
+            QueriesClass.SelectQuery(querySeldate, InfoWorks);
+            // Filter();
+            countWorks.Text = "Количество выполненных работ: " + (InfoWorks.RowCount - 1);
+            summLine.Text = "Сумма: " + Total() + "BYN";
+        }
+
+        private void firstSecondPrice_TextChanged(object sender, EventArgs e)
+        {
+            //Filter();
+            try
+            {
+                if (firstPrice.Text != "" && secondPrice.Text != "")
+                {
+                    string AllPrice = "SELECT orders.id_order,masters.Surname,masters.Name,masters.Patronymic,Group_concat(service.name_service SEPARATOR ', ')," +
+                                            " sum(service.price) ,concat_ws('-',day(orders.Date),month(orders.Date),year(orders.Date))" +
+                              " FROM service INNER JOIN order_service ON service.id_service=order_service.id_service " +
+                              " INNER JOIN orders ON orders.id_order= order_service.id_order" +
+                              " INNER JOIN masters ON masters.id_master = orders.id_master" +
+                              " GROUP BY order_service.id_order" +
+                               " HAVING sum(service.Price) BETWEEN " + int.Parse(firstPrice.Text) + " AND " + int.Parse(secondPrice.Text);
+                    QueriesClass.SelectQuery(AllPrice, InfoWorks);
+                }
+                else
+                {
+                    QueriesClass.SelectQuery(querySelectOrders, InfoWorks);
+                }
+
+                if (firstPrice.Text != "" && secondPrice.Text == "")
+                {
+                    string fromPrice = "SELECT orders.id_order,masters.Surname,masters.Name,masters.Patronymic,Group_concat(service.name_service SEPARATOR ', ')," +
+                                            " sum(service.price) ,concat_ws('-',day(orders.Date),month(orders.Date),year(orders.Date))" +
+                              " FROM service INNER JOIN order_service ON service.id_service=order_service.id_service " +
+                              " INNER JOIN orders ON orders.id_order= order_service.id_order" +
+                              " INNER JOIN masters ON masters.id_master = orders.id_master" +
+                              " GROUP BY order_service.id_order" +
+                               " HAVING sum(service.Price)> " + int.Parse(firstPrice.Text);
+                    QueriesClass.SelectQuery(fromPrice, InfoWorks);
+                }
+                else
+                  if (firstPrice.Text == "" && secondPrice.Text != "")
+                  {
+                    string toPrice = "SELECT orders.id_order,masters.Surname,masters.Name,masters.Patronymic,Group_concat(service.name_service SEPARATOR ', ')," +
+                                            " sum(service.price) ,concat_ws('-',day(orders.Date),month(orders.Date),year(orders.Date))" +
+                              " FROM service INNER JOIN order_service ON service.id_service=order_service.id_service " +
+                              " INNER JOIN orders ON orders.id_order= order_service.id_order" +
+                              " INNER JOIN masters ON masters.id_master = orders.id_master" +
+                              " GROUP BY order_service.id_order" +
+                               " HAVING sum(service.Price)< " + int.Parse(secondPrice.Text);
+                    QueriesClass.SelectQuery(toPrice, InfoWorks);
+                  }
+
+            }
+            catch
+            {
+                DialogResult result = MessageBox.Show(
+                             "Цена должна быть целочисленного формата",
+                              "Attention",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Information,
+                             MessageBoxDefaultButton.Button1,
+                             MessageBoxOptions.DefaultDesktopOnly);
+                if (firstPrice.Text.Contains(".")) firstPrice.Text = "";
+                else secondPrice.Text = "";
+                this.TopMost = true;
+
+            }
+            countWorks.Text = "Количество выполненных работ: " + (InfoWorks.RowCount - 1);
+            summLine.Text = "Сумма: " + Total() + "BYN";
         }
 
         private void panel1_DoneWorks_MouseUp(object sender, MouseEventArgs e)

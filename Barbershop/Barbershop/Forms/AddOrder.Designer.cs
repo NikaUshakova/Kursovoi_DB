@@ -61,6 +61,9 @@
             this.InsOrder = new System.Windows.Forms.Button();
             this.OrderDate = new System.Windows.Forms.Label();
             this.OrderMaster = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -80,7 +83,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.CloseExe);
-            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Location = new System.Drawing.Point(-1, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1114, 26);
             this.panel1.TabIndex = 6;
@@ -116,11 +119,11 @@
             // 
             this.OrderSum.AutoSize = true;
             this.OrderSum.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OrderSum.Location = new System.Drawing.Point(670, 468);
+            this.OrderSum.Location = new System.Drawing.Point(845, 470);
             this.OrderSum.Name = "OrderSum";
-            this.OrderSum.Size = new System.Drawing.Size(183, 17);
+            this.OrderSum.Size = new System.Drawing.Size(46, 17);
             this.OrderSum.TabIndex = 10;
-            this.OrderSum.Text = "Общая сумма заказа:";
+            this.OrderSum.Text = "sum:";
             // 
             // groupBox1
             // 
@@ -438,21 +441,51 @@
             // 
             this.OrderDate.AutoSize = true;
             this.OrderDate.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OrderDate.Location = new System.Drawing.Point(670, 523);
+            this.OrderDate.Location = new System.Drawing.Point(781, 523);
             this.OrderDate.Name = "OrderDate";
-            this.OrderDate.Size = new System.Drawing.Size(111, 17);
+            this.OrderDate.Size = new System.Drawing.Size(42, 17);
             this.OrderDate.TabIndex = 18;
-            this.OrderDate.Text = "Дата заказа:";
+            this.OrderDate.Text = "date";
             // 
             // OrderMaster
             // 
             this.OrderMaster.AutoSize = true;
             this.OrderMaster.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OrderMaster.Location = new System.Drawing.Point(670, 496);
+            this.OrderMaster.Location = new System.Drawing.Point(738, 496);
             this.OrderMaster.Name = "OrderMaster";
-            this.OrderMaster.Size = new System.Drawing.Size(72, 17);
+            this.OrderMaster.Size = new System.Drawing.Size(39, 17);
             this.OrderMaster.TabIndex = 19;
-            this.OrderMaster.Text = "Мастер:";
+            this.OrderMaster.Text = "mas";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(669, 495);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 18);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Мастер:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(669, 522);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 18);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Дата заказа:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(669, 469);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(176, 18);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Общая сумма заказа:";
             // 
             // AddOrder
             // 
@@ -460,6 +493,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1111, 703);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.OrderMaster);
             this.Controls.Add(this.OrderDate);
             this.Controls.Add(this.groupBox3);
@@ -529,5 +565,8 @@
         private System.Windows.Forms.RadioButton avgBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton shortBtn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

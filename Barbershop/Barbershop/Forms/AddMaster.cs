@@ -73,7 +73,15 @@ namespace Barbershop
                                      queryInsertMaster = "Insert into masters VALUES(0,'" + surname.Text + "','" + nameTB.Text + "','" + patronymic.Text + "','" +
                                          adress.Text + "','" + phone + "');";
                                     QueriesClass.QuerytoTable(queryInsertMaster);
-                                     Reset();
+                                    DialogResult result = MessageBox.Show(
+                          "Мастер добавлен!",
+                           "Well",
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Information,
+                          MessageBoxDefaultButton.Button1,
+                          MessageBoxOptions.DefaultDesktopOnly);
+                                    this.TopMost = true;
+                                    Reset();
                                 }
                                 else
                                 {

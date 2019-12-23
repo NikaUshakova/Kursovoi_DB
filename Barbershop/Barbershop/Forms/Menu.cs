@@ -70,6 +70,21 @@ namespace Barbershop
             this.Hide();
         }
 
+        private void StatisticForm_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ну ТуТ кАрОч 2 ДиАгРаМмКи БуДуТ... НаВеРнОе");
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Супер мега крутая прога, делалась днями и ночами. Или только ночами... ");
+        }
+
+        private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Хелп энд Мануал");
+        }
+
         private void menuStrip1_Menu_MouseMove(object sender, MouseEventArgs e)
         {
             if (move == 1)

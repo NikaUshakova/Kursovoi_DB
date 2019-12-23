@@ -130,7 +130,7 @@ namespace Barbershop
             if (result == DialogResult.Yes)
             {
                 QueriesClass.QuerytoTable(queryDeleteMaster);
-                QueriesClass.SelectQuery(querySelectMasters, MastersTable);
+                QueriesClass.SelectQuery(querySelectService, tableService);
             }
             else
             {

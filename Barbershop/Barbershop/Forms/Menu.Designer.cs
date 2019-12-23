@@ -52,7 +52,7 @@
             this.оПрограммеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(438, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(438, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseDown);
             this.menuStrip1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.menuStrip1_Menu_MouseMove);
@@ -61,14 +61,16 @@
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(97, 26);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
             this.справкаToolStripMenuItem.Text = "Справка";
+            this.справкаToolStripMenuItem.Click += new System.EventHandler(this.справкаToolStripMenuItem_Click);
             // 
             // оПрограммеToolStripMenuItem
             // 
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // AddServiceForm
             // 
@@ -116,6 +118,7 @@
             this.StatisticForm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.StatisticForm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.StatisticForm.UseVisualStyleBackColor = false;
+            this.StatisticForm.Click += new System.EventHandler(this.StatisticForm_Click);
             // 
             // AddMasterForm
             // 
