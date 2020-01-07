@@ -68,20 +68,23 @@ namespace Barbershop
             string querycountser = "Select count(*) FROM service";
             string querySelFIO = "SELECT Concat_ws(' ',surname,name,patronymic )  FROM masters";
             string querySelService = "SELECT name_service  FROM service";
-            int count = int.Parse(QueriesClass.SelectLabel(querycount));
-            int countser = int.Parse(QueriesClass.SelectLabel(querycountser));
-            List<string[]> pamagi = new List<string[]>();
-           
-            pamagi = QueriesClass.SelectCombo(querySelFIO);
+            int count = QueriesClass.SelectOne(querycount);
+            int countser = QueriesClass.SelectOne(querycountser);
+            List<string> pamagite = new List<string>();
+            List<string> pamagi = new List<string>();
+            ///
+            pamagite.Clear();
+            pamagite = QueriesClass.SelectCombo(querySelFIO);
             for (int i = 0; i < count; i++)
             {                
-                comboFIO.Items.Add(pamagi[i][0].ToString());                             
+                comboFIO.Items.Add(pamagite[i].ToString());                             
             }
+            ///
             pamagi.Clear();
             pamagi = QueriesClass.SelectCombo(querySelService);
             for (int i = 0; i < countser ; i++)
             {
-                comboService.Items.Add(pamagi[i][0].ToString());
+                comboService.Items.Add(pamagi[i].ToString());
             }
         }
 
@@ -268,9 +271,9 @@ namespace Barbershop
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            string date1 = dateTimePicker1.Value.Year.ToString() + dateTimePicker1.Value.Month.ToString() + dateTimePicker1.Value.Day.ToString();
-            string date2 = dateTimePicker2.Value.Year.ToString() + dateTimePicker2.Value.Month.ToString() + dateTimePicker2.Value.Day.ToString();
-
+            string date1 = dateTimePicker1.Value.Year.ToString()+"-" + dateTimePicker1.Value.Month.ToString() +"-" + dateTimePicker1.Value.Day.ToString();
+            string date2 = dateTimePicker2.Value.Year.ToString() + "-" + dateTimePicker2.Value.Month.ToString() + "-" + dateTimePicker2.Value.Day.ToString();
+            //MessageBox.Show(date1 + "   " + date2);
             string querySeldate = "SELECT orders.id_order,masters.Surname,masters.Name,masters.Patronymic,Group_concat(service.name_service SEPARATOR ', ')," +
                                   " sum(service.price) ,concat_ws('-',day(orders.Date),month(orders.Date),year(orders.Date))" +
                     " FROM service INNER JOIN order_service ON service.id_service=order_service.id_service " +

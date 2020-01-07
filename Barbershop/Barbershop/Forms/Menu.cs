@@ -73,6 +73,9 @@ namespace Barbershop
         private void StatisticForm_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Ну ТуТ кАрОч 2 ДиАгРаМмКи БуДуТ... НаВеРнОе");
+            var chart = new Statistic();
+            chart.Show();
+            this.Hide();
         }
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)

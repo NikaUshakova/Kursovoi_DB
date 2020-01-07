@@ -177,7 +177,7 @@ namespace Barbershop
             {
                 service_name = listBox.Items[i].ToString();
                 query = "SELECT price FROM service WHERE service.name_service = '" + service_name + "';";                
-                price[i] = int.Parse(QueriesClass.SelectLabel(query));      //+Special()
+                price[i] = QueriesClass.SelectOne(query);      //+Special()
                 //MessageBox.Show(price[i].ToString());
                 
                 sum += price[i];
@@ -203,7 +203,7 @@ namespace Barbershop
            
                 queryIDorder = "SELECT last_insert_id(orders.id_order) FROM orders ORDER BY orders.id_order desc LIMIT 1"; // Get ID of last order
                 //MessageBox.Show("Сейчас кину ошибку");
-                IdOrder = int.Parse(QueriesClass.SelectLabel(queryIDorder));       //ID_order           
+                IdOrder = QueriesClass.SelectOne(queryIDorder);       //ID_order           
            
                 string InsertOrder_Service;
                 string queryIDservice, service_name;  //field for queries
@@ -215,7 +215,7 @@ namespace Barbershop
                     service_name = listBox.Items[i].ToString();
                     queryIDservice = "SELECT service.id_service FROM service WHERE service.name_service = '" + service_name + "';";      //Get service ID
 
-                    IdService = int.Parse(QueriesClass.SelectLabel(queryIDservice));       //ID_service
+                    IdService = QueriesClass.SelectOne(queryIDservice);       //ID_service
 
                     // MessageBox.Show("id услуги "+IdService.ToString());
                     // MessageBox.Show("id заказа " + IdOrder.ToString());

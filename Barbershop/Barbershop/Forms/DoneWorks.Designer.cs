@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DoneWorks));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.CloseExe = new System.Windows.Forms.PictureBox();
             this.InfoWorks = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MasterSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +48,6 @@
             this.summLine = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.resetFilters = new System.Windows.Forms.Button();
             this.comboFIO = new System.Windows.Forms.ComboBox();
             this.comboService = new System.Windows.Forms.ComboBox();
             this.secondPrice = new System.Windows.Forms.TextBox();
@@ -65,12 +62,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.DeleteOrders = new System.Windows.Forms.Button();
             this.AddOrder = new System.Windows.Forms.Button();
+            this.CloseExe = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InfoWorks)).BeginInit();
             this.delOrder.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,36 +91,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(553, 1);
+            this.label1.Location = new System.Drawing.Point(530, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(222, 23);
             this.label1.TabIndex = 6;
             this.label1.Text = "Выполненные заказы";
             // 
-            // CloseExe
-            // 
-            this.CloseExe.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.CloseExe.Image = global::Barbershop.Properties.Resources.multiply;
-            this.CloseExe.Location = new System.Drawing.Point(1217, 0);
-            this.CloseExe.Name = "CloseExe";
-            this.CloseExe.Size = new System.Drawing.Size(22, 22);
-            this.CloseExe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CloseExe.TabIndex = 5;
-            this.CloseExe.TabStop = false;
-            this.CloseExe.Click += new System.EventHandler(this.CloseExe_Click);
-            this.CloseExe.MouseLeave += new System.EventHandler(this.CloseExe_MouseLeave);
-            this.CloseExe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CloseExe_MouseMove);
-            // 
             // InfoWorks
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.InfoWorks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.InfoWorks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.InfoWorks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.InfoWorks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -131,14 +117,14 @@
             this.Sum,
             this.Date});
             this.InfoWorks.ContextMenuStrip = this.delOrder;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.InfoWorks.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.InfoWorks.DefaultCellStyle = dataGridViewCellStyle4;
             this.InfoWorks.Location = new System.Drawing.Point(4, 199);
             this.InfoWorks.Name = "InfoWorks";
             this.InfoWorks.RowHeadersWidth = 20;
@@ -259,8 +245,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.resetFilters);
             this.groupBox1.Controls.Add(this.comboFIO);
             this.groupBox1.Controls.Add(this.comboService);
             this.groupBox1.Controls.Add(this.secondPrice);
@@ -289,24 +275,6 @@
             this.label8.Size = new System.Drawing.Size(38, 18);
             this.label8.TabIndex = 22;
             this.label8.Text = "BYN";
-            // 
-            // resetFilters
-            // 
-            this.resetFilters.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.resetFilters.FlatAppearance.BorderSize = 2;
-            this.resetFilters.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resetFilters.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resetFilters.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.resetFilters.Image = ((System.Drawing.Image)(resources.GetObject("resetFilters.Image")));
-            this.resetFilters.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.resetFilters.Location = new System.Drawing.Point(957, 105);
-            this.resetFilters.Name = "resetFilters";
-            this.resetFilters.Size = new System.Drawing.Size(270, 50);
-            this.resetFilters.TabIndex = 21;
-            this.resetFilters.Text = "Сбросить фильтры";
-            this.resetFilters.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.resetFilters.UseVisualStyleBackColor = false;
-            this.resetFilters.Click += new System.EventHandler(this.resetFilters_Click);
             // 
             // comboFIO
             // 
@@ -456,6 +424,32 @@
             this.AddOrder.UseVisualStyleBackColor = false;
             this.AddOrder.Click += new System.EventHandler(this.AddOrder_Click);
             // 
+            // CloseExe
+            // 
+            this.CloseExe.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.CloseExe.Image = global::Barbershop.Properties.Resources.multiply;
+            this.CloseExe.Location = new System.Drawing.Point(1217, 0);
+            this.CloseExe.Name = "CloseExe";
+            this.CloseExe.Size = new System.Drawing.Size(22, 22);
+            this.CloseExe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CloseExe.TabIndex = 5;
+            this.CloseExe.TabStop = false;
+            this.CloseExe.Click += new System.EventHandler(this.CloseExe_Click);
+            this.CloseExe.MouseLeave += new System.EventHandler(this.CloseExe_MouseLeave);
+            this.CloseExe.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CloseExe_MouseMove);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Barbershop.Properties.Resources.update_arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(1191, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(35, 40);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.resetFilters_Click);
+            // 
             // DoneWorks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -478,13 +472,14 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_DoneWorks_MouseUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InfoWorks)).EndInit();
             this.delOrder.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,7 +508,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button resetFilters;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MasterSurname;
         private System.Windows.Forms.DataGridViewTextBoxColumn MasterName;
@@ -524,5 +518,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ContextMenuStrip delOrder;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

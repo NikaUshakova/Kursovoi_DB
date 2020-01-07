@@ -16,7 +16,7 @@ namespace ConnectionLibrary
     {
        
          static List<string[]> listName = new List<string[]>();
-       
+        static List<string> listcombo = new List<string>();
         public static List<string[]> SelectQuery(string query, DataGridView table)
         {
             int countColumn = table.ColumnCount;
@@ -56,9 +56,9 @@ namespace ConnectionLibrary
             }
         }
 
-        public static string SelectLabel(string query)
+        public static int SelectOne(string query)
         {
-            string result = "";
+            int result = 0;
             //Open connection
             if (ConnectionClass.OpenConnection() == true)
             {
@@ -66,11 +66,11 @@ namespace ConnectionLibrary
                 MySqlCommand cmd = new MySqlCommand(query, ConnectionClass.connection);
                 //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
-                listName.Clear();
+                
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    result = dataReader.GetInt32(0).ToString();
+                    result = dataReader.GetInt32(0); //почему-то 0
                 }           
 
                 //close Data Reader
@@ -87,7 +87,7 @@ namespace ConnectionLibrary
                 return result;
             }
         }
-        public static List<string[]> SelectCombo(string query)
+        public static List<string> SelectCombo(string query)
         {
             
                 //Open connection
@@ -102,13 +102,9 @@ namespace ConnectionLibrary
                 
                 while (dataReader.Read())
                 {
-
-
-                    listName.Add(new string[1]);
-                    
-                        listName[listName.Count - 1][0] = dataReader[0].ToString(); //get info from DB tables depending on the count of columns
-                    
-
+                    string item="";
+                    listcombo.Add(item);                  
+                    item = listcombo[listcombo.Count-1] = dataReader[0].ToString(); //get info from DB tables depending on the count of columns
                 }
 
                 //close Data Reader
@@ -118,11 +114,11 @@ namespace ConnectionLibrary
                 ConnectionClass.CloseConnection();
 
                 //return list to be displayed
-                return listName;
+                return listcombo;
             }
             else
             {
-                return listName;
+                return listcombo;
             }
         }
 

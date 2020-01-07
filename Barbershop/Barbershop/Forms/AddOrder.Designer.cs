@@ -40,15 +40,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.Choose = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.ownBtn = new System.Windows.Forms.RadioButton();
-            this.salonBtn = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.longBtn = new System.Windows.Forms.RadioButton();
-            this.avgBtn = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.shortBtn = new System.Windows.Forms.RadioButton();
             this.No = new System.Windows.Forms.PictureBox();
             this.yes = new System.Windows.Forms.PictureBox();
             this.Summ = new System.Windows.Forms.Button();
@@ -70,8 +61,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TableSelectMasters)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.Choose.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.No)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TableSelectService)).BeginInit();
@@ -188,12 +177,11 @@
             this.monthCalendar1.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 14;
-            this.monthCalendar1.TodayDate = new System.DateTime(2019, 12, 21, 0, 0, 0, 0);
+            this.monthCalendar1.TodayDate = new System.DateTime(2019, 12, 24, 0, 0, 0, 0);
             this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.Choose);
             this.groupBox3.Controls.Add(this.No);
             this.groupBox3.Controls.Add(this.yes);
             this.groupBox3.Controls.Add(this.Summ);
@@ -206,104 +194,6 @@
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Выбор услуг";
-            // 
-            // Choose
-            // 
-            this.Choose.Controls.Add(this.panel2);
-            this.Choose.Controls.Add(this.label3);
-            this.Choose.Controls.Add(this.longBtn);
-            this.Choose.Controls.Add(this.avgBtn);
-            this.Choose.Controls.Add(this.label2);
-            this.Choose.Controls.Add(this.shortBtn);
-            this.Choose.Enabled = false;
-            this.Choose.Location = new System.Drawing.Point(667, 251);
-            this.Choose.Name = "Choose";
-            this.Choose.Size = new System.Drawing.Size(415, 103);
-            this.Choose.TabIndex = 19;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.ownBtn);
-            this.panel2.Controls.Add(this.salonBtn);
-            this.panel2.Location = new System.Drawing.Point(156, 23);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(133, 64);
-            this.panel2.TabIndex = 7;
-            // 
-            // ownBtn
-            // 
-            this.ownBtn.AutoSize = true;
-            this.ownBtn.Location = new System.Drawing.Point(20, 3);
-            this.ownBtn.Name = "ownBtn";
-            this.ownBtn.Size = new System.Drawing.Size(65, 22);
-            this.ownBtn.TabIndex = 5;
-            this.ownBtn.TabStop = true;
-            this.ownBtn.Text = "Своя";
-            this.ownBtn.UseVisualStyleBackColor = true;
-            // 
-            // salonBtn
-            // 
-            this.salonBtn.AutoSize = true;
-            this.salonBtn.Location = new System.Drawing.Point(20, 24);
-            this.salonBtn.Name = "salonBtn";
-            this.salonBtn.Size = new System.Drawing.Size(98, 22);
-            this.salonBtn.TabIndex = 6;
-            this.salonBtn.TabStop = true;
-            this.salonBtn.Text = "Салонная";
-            this.salonBtn.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(153, 2);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 18);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Краска:";
-            // 
-            // longBtn
-            // 
-            this.longBtn.AutoSize = true;
-            this.longBtn.Location = new System.Drawing.Point(26, 65);
-            this.longBtn.Name = "longBtn";
-            this.longBtn.Size = new System.Drawing.Size(114, 22);
-            this.longBtn.TabIndex = 3;
-            this.longBtn.TabStop = true;
-            this.longBtn.Text = "свыше 40см";
-            this.longBtn.UseVisualStyleBackColor = true;
-            // 
-            // avgBtn
-            // 
-            this.avgBtn.AutoSize = true;
-            this.avgBtn.Location = new System.Drawing.Point(26, 44);
-            this.avgBtn.Name = "avgBtn";
-            this.avgBtn.Size = new System.Drawing.Size(85, 22);
-            this.avgBtn.TabIndex = 2;
-            this.avgBtn.TabStop = true;
-            this.avgBtn.Text = "20-40см";
-            this.avgBtn.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(3, 2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Длина волос:";
-            // 
-            // shortBtn
-            // 
-            this.shortBtn.AutoSize = true;
-            this.shortBtn.Location = new System.Drawing.Point(26, 23);
-            this.shortBtn.Name = "shortBtn";
-            this.shortBtn.Size = new System.Drawing.Size(86, 22);
-            this.shortBtn.TabIndex = 0;
-            this.shortBtn.TabStop = true;
-            this.shortBtn.Text = "до 20см";
-            this.shortBtn.UseVisualStyleBackColor = true;
             // 
             // No
             // 
@@ -354,7 +244,7 @@
             this.listBox.ItemHeight = 18;
             this.listBox.Location = new System.Drawing.Point(667, 25);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(416, 220);
+            this.listBox.Size = new System.Drawing.Size(416, 328);
             this.listBox.TabIndex = 12;
             // 
             // TableSelectService
@@ -520,10 +410,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.TableSelectMasters)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.Choose.ResumeLayout(false);
-            this.Choose.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.No)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TableSelectService)).EndInit();
@@ -556,15 +442,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_service;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name_service;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.Panel Choose;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RadioButton ownBtn;
-        private System.Windows.Forms.RadioButton salonBtn;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton longBtn;
-        private System.Windows.Forms.RadioButton avgBtn;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton shortBtn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
