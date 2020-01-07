@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Barbershop.AddMaster" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAIAAAAAWAQJBCAAFKEBAECAFAAAAAIAAgBCQABAAI=</HashCode>
+      <FileName>Forms\AddMaster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barbershop.AddOrder">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="CloseExe_Click" Hidden="true" />
+      <Method Name="CloseExe_MouseLeave" Hidden="true" />
+      <Method Name="CloseExe_MouseMove" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="panel1_AddOrder_MouseDown" Hidden="true" />
+      <Method Name="panel1_AddOrder_MouseMove" Hidden="true" />
+      <Method Name="panel1_AddOrder_MouseUp" Hidden="true" />
+      <Method Name="resetBtn_Click" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAAAAAQBk6IAZJCAEDLQBAQGACAAABCAACgACQIBAAI=</HashCode>
+      <FileName>Forms\AddOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barbershop.AddService">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="CloseExe_Click" Hidden="true" />
+      <Method Name="CloseExe_MouseLeave" Hidden="true" />
+      <Method Name="CloseExe_MouseMove" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="nameService_KeyPress" Hidden="true" />
+      <Method Name="panel1_AddService_MouseDown" Hidden="true" />
+      <Method Name="panel1_AddService_MouseMove" Hidden="true" />
+      <Method Name="panel1_AddService_MouseUp" Hidden="true" />
+      <Method Name="price_KeyPress" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQABAAAAACAQJBCAAJKCBAgCAAAAABAAAAAQCQABCAI=</HashCode>
+      <FileName>Forms\AddService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barbershop.DoneWorks">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <Members>
+      <Method Name="CloseExe_Click" Hidden="true" />
+      <Method Name="CloseExe_MouseLeave" Hidden="true" />
+      <Method Name="CloseExe_MouseMove" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="firstPrice_KeyPress" Hidden="true" />
+      <Method Name="firstSecondPrice_TextChanged" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="panel1_DoneWorks_MouseDown" Hidden="true" />
+      <Method Name="panel1_DoneWorks_MouseMove" Hidden="true" />
+      <Method Name="panel1_DoneWorks_MouseUp" Hidden="true" />
+      <Method Name="resetFilters_Click" Hidden="true" />
+      <Method Name="toolStripMenuItem2_Click" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ECEAACAgEDBEqBCKgBCgBIAGgACWQBBDAGAAKQBAJQc=</HashCode>
+      <FileName>Forms\DoneWorks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barbershop.EditMaster">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="CloseExe_Click" Hidden="true" />
+      <Method Name="CloseExe_MouseLeave" Hidden="true" />
+      <Method Name="CloseExe_MouseMove" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="panel1_EditMaster_MouseDown" Hidden="true" />
+      <Method Name="panel1_EditMaster_MouseMove" Hidden="true" />
+      <Method Name="panel1_EditMaster_MouseUp" Hidden="true" />
+      <Method Name="patronymic_name_surname_KeyPress" Hidden="true" />
+      <Method Name="phoneNumber_KeyPress" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>IAAAAgAAAGCAMBCAABGEBEBCAFAAAAAIAAAADQAAAAI=</HashCode>
+      <FileName>Forms\EditMaster .cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barbershop.EditService">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="CloseExe_Click" Hidden="true" />
+      <Method Name="CloseExe_MouseLeave" Hidden="true" />
+      <Method Name="CloseExe_MouseMove" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="panel1_EditService_MouseDown" Hidden="true" />
+      <Method Name="panel1_EditService_MouseMove" Hidden="true" />
+      <Method Name="panel1_EditService_MouseUp" Hidden="true" />
+      <Method Name="price_KeyPress" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACCAIBCCADCEDAACAAAAABAAAAAADQAgCAI=</HashCode>
+      <FileName>Forms\EditService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barbershop.MastersServices">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="CloseExe_Click" Hidden="true" />
+      <Method Name="CloseExe_MouseLeave" Hidden="true" />
+      <Method Name="CloseExe_MouseMove" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="panel1_Masters_MouseDown" Hidden="true" />
+      <Method Name="panel1_Masters_MouseMove" Hidden="true" />
+      <Method Name="panel1_Masters_MouseUp" Hidden="true" />
+      <Method Name="toolStripMenuItem1_Click" Hidden="true" />
+      <Method Name="toolStripMenuItem2_Click" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AOEhgCAJACQApFCCBBCRJCACkAKABBgABAQACQAACCc=</HashCode>
+      <FileName>Forms\MastersServices.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barbershop.Menu" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQAACACAECAAIAOAABCABAACAAAgAABAAABISAgBACo=</HashCode>
+      <FileName>Forms\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barbershop.Statistic">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <Members>
+      <Method Name="CloseExe_Click" Hidden="true" />
+      <Method Name="CloseExe_MouseLeave" Hidden="true" />
+      <Method Name="CloseExe_MouseMove" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Method Name="panel1_Statistic_MouseDown" Hidden="true" />
+      <Method Name="panel1_Statistic_MouseMove" Hidden="true" />
+      <Method Name="panel1_Statistic_MouseUp" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAwAAwMAACCgIBCAABCABAADAAgAEACAAAAACwQAAAI=</HashCode>
+      <FileName>Forms\Statistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barbershop.Forms.LoadForm">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <Members>
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAADAIAAAAAACAAAACAAAAIAAAAAAAAABAAAA=</HashCode>
+      <FileName>Forms\LoadForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -42,7 +42,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.No = new System.Windows.Forms.PictureBox();
             this.yes = new System.Windows.Forms.PictureBox();
-            this.Summ = new System.Windows.Forms.Button();
             this.listBox = new System.Windows.Forms.ListBox();
             this.TableSelectService = new System.Windows.Forms.DataGridView();
             this.ID_service = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,7 +107,7 @@
             // 
             this.OrderSum.AutoSize = true;
             this.OrderSum.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OrderSum.Location = new System.Drawing.Point(845, 470);
+            this.OrderSum.Location = new System.Drawing.Point(845, 419);
             this.OrderSum.Name = "OrderSum";
             this.OrderSum.Size = new System.Drawing.Size(46, 17);
             this.OrderSum.TabIndex = 10;
@@ -118,7 +117,7 @@
             // 
             this.groupBox1.Controls.Add(this.TableSelectMasters);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(10, 455);
+            this.groupBox1.Location = new System.Drawing.Point(10, 404);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(442, 237);
             this.groupBox1.TabIndex = 15;
@@ -163,7 +162,7 @@
             // 
             this.groupBox2.Controls.Add(this.monthCalendar1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox2.Location = new System.Drawing.Point(458, 455);
+            this.groupBox2.Location = new System.Drawing.Point(458, 404);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(207, 237);
             this.groupBox2.TabIndex = 16;
@@ -177,20 +176,19 @@
             this.monthCalendar1.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 14;
-            this.monthCalendar1.TodayDate = new System.DateTime(2019, 12, 24, 0, 0, 0, 0);
+            this.monthCalendar1.TodayDate = new System.DateTime(2020, 1, 7, 0, 0, 0, 0);
             this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.No);
             this.groupBox3.Controls.Add(this.yes);
-            this.groupBox3.Controls.Add(this.Summ);
             this.groupBox3.Controls.Add(this.listBox);
             this.groupBox3.Controls.Add(this.TableSelectService);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox3.Location = new System.Drawing.Point(10, 36);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1089, 409);
+            this.groupBox3.Size = new System.Drawing.Size(1089, 362);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Выбор услуг";
@@ -219,24 +217,6 @@
             this.yes.TabStop = false;
             this.yes.Click += new System.EventHandler(this.yes_Click);
             // 
-            // Summ
-            // 
-            this.Summ.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Summ.FlatAppearance.BorderSize = 2;
-            this.Summ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Summ.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Summ.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Summ.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Summ.Location = new System.Drawing.Point(666, 363);
-            this.Summ.Name = "Summ";
-            this.Summ.Size = new System.Drawing.Size(416, 40);
-            this.Summ.TabIndex = 17;
-            this.Summ.Text = "Сумма";
-            this.Summ.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Summ.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Summ.UseVisualStyleBackColor = false;
-            this.Summ.Click += new System.EventHandler(this.Summ_Click);
-            // 
             // listBox
             // 
             this.listBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -259,7 +239,7 @@
             this.TableSelectService.Name = "TableSelectService";
             this.TableSelectService.RowHeadersWidth = 25;
             this.TableSelectService.RowTemplate.Height = 24;
-            this.TableSelectService.Size = new System.Drawing.Size(605, 379);
+            this.TableSelectService.Size = new System.Drawing.Size(605, 329);
             this.TableSelectService.TabIndex = 11;
             this.TableSelectService.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TableSelectService_CellClick);
             // 
@@ -301,7 +281,7 @@
             this.resetBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.resetBtn.Image = global::Barbershop.Properties.Resources.reset_40_;
             this.resetBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.resetBtn.Location = new System.Drawing.Point(905, 635);
+            this.resetBtn.Location = new System.Drawing.Point(905, 584);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(194, 51);
             this.resetBtn.TabIndex = 8;
@@ -318,7 +298,7 @@
             this.InsOrder.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.InsOrder.ForeColor = System.Drawing.SystemColors.ControlText;
             this.InsOrder.Image = global::Barbershop.Properties.Resources.add_40_;
-            this.InsOrder.Location = new System.Drawing.Point(676, 635);
+            this.InsOrder.Location = new System.Drawing.Point(676, 584);
             this.InsOrder.Name = "InsOrder";
             this.InsOrder.Size = new System.Drawing.Size(194, 51);
             this.InsOrder.TabIndex = 7;
@@ -331,7 +311,7 @@
             // 
             this.OrderDate.AutoSize = true;
             this.OrderDate.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OrderDate.Location = new System.Drawing.Point(781, 523);
+            this.OrderDate.Location = new System.Drawing.Point(781, 472);
             this.OrderDate.Name = "OrderDate";
             this.OrderDate.Size = new System.Drawing.Size(42, 17);
             this.OrderDate.TabIndex = 18;
@@ -341,7 +321,7 @@
             // 
             this.OrderMaster.AutoSize = true;
             this.OrderMaster.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OrderMaster.Location = new System.Drawing.Point(738, 496);
+            this.OrderMaster.Location = new System.Drawing.Point(738, 445);
             this.OrderMaster.Name = "OrderMaster";
             this.OrderMaster.Size = new System.Drawing.Size(39, 17);
             this.OrderMaster.TabIndex = 19;
@@ -351,7 +331,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(669, 495);
+            this.label4.Location = new System.Drawing.Point(669, 444);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 18);
             this.label4.TabIndex = 22;
@@ -361,7 +341,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(669, 522);
+            this.label5.Location = new System.Drawing.Point(669, 471);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(108, 18);
             this.label5.TabIndex = 21;
@@ -371,7 +351,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(669, 469);
+            this.label6.Location = new System.Drawing.Point(669, 418);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(176, 18);
             this.label6.TabIndex = 20;
@@ -382,7 +362,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1111, 703);
+            this.ClientSize = new System.Drawing.Size(1111, 646);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -432,7 +412,6 @@
         private System.Windows.Forms.PictureBox yes;
         private System.Windows.Forms.PictureBox No;
         private System.Windows.Forms.DataGridView TableSelectMasters;
-        private System.Windows.Forms.Button Summ;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_master;
         private System.Windows.Forms.DataGridViewTextBoxColumn FIOmaster;
         private System.Windows.Forms.Label OrderDate;

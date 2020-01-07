@@ -28,24 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Statistic));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.CloseExe = new System.Windows.Forms.PictureBox();
             this.chartSum = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartCount = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.period = new System.Windows.Forms.ComboBox();
+            this.back = new System.Windows.Forms.PictureBox();
+            this.forward = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartSum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forward)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -98,68 +103,74 @@
             this.chartSum.BorderSkin.BackSecondaryColor = System.Drawing.Color.BlueViolet;
             this.chartSum.BorderSkin.PageColor = System.Drawing.Color.Transparent;
             this.chartSum.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.FrameTitle6;
-            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea1.AxisX.IsLabelAutoFit = false;
-            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            chartArea1.AxisX.LineWidth = 2;
-            chartArea1.AxisX.ScaleBreakStyle.Spacing = 1D;
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            chartArea1.AxisY.IsLabelAutoFit = false;
-            chartArea1.AxisY.LineWidth = 2;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.BorderColor = System.Drawing.Color.Transparent;
-            chartArea1.InnerPlotPosition.Auto = false;
-            chartArea1.InnerPlotPosition.Height = 90F;
-            chartArea1.InnerPlotPosition.Width = 90F;
-            chartArea1.InnerPlotPosition.X = 8F;
-            chartArea1.InnerPlotPosition.Y = 5F;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.Position.Auto = false;
-            chartArea1.Position.Height = 70F;
-            chartArea1.Position.Width = 95F;
-            chartArea1.Position.Y = 13F;
-            this.chartSum.ChartAreas.Add(chartArea1);
+            chartArea3.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea3.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea3.AxisX.IsLabelAutoFit = false;
+            chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            chartArea3.AxisX.LineWidth = 2;
+            chartArea3.AxisX.ScaleBreakStyle.Spacing = 1D;
+            chartArea3.AxisX.TitleAlignment = System.Drawing.StringAlignment.Far;
+            chartArea3.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            chartArea3.AxisY.IsLabelAutoFit = false;
+            chartArea3.AxisY.LineWidth = 2;
+            chartArea3.AxisY.Title = "Выручка, BYN";
+            chartArea3.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.BorderColor = System.Drawing.Color.Transparent;
+            chartArea3.InnerPlotPosition.Auto = false;
+            chartArea3.InnerPlotPosition.Height = 71F;
+            chartArea3.InnerPlotPosition.Width = 90F;
+            chartArea3.InnerPlotPosition.X = 9F;
+            chartArea3.InnerPlotPosition.Y = 5F;
+            chartArea3.Name = "ChartArea1";
+            chartArea3.Position.Auto = false;
+            chartArea3.Position.Height = 80F;
+            chartArea3.Position.Width = 95F;
+            chartArea3.Position.Y = 13F;
+            this.chartSum.ChartAreas.Add(chartArea3);
             this.chartSum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.Enabled = false;
-            legend1.Font = new System.Drawing.Font("Verdana", 8F);
-            legend1.IsEquallySpacedItems = true;
-            legend1.IsTextAutoFit = false;
-            legend1.ItemColumnSpacing = 10;
-            legend1.Name = "Legend1";
-            legend1.Position.Auto = false;
-            legend1.Position.Height = 5F;
-            legend1.Position.Width = 20F;
-            legend1.Position.X = 75F;
-            legend1.Position.Y = 15F;
-            this.chartSum.Legends.Add(legend1);
+            legend3.BackColor = System.Drawing.Color.Transparent;
+            legend3.Enabled = false;
+            legend3.Font = new System.Drawing.Font("Verdana", 8F);
+            legend3.IsEquallySpacedItems = true;
+            legend3.IsTextAutoFit = false;
+            legend3.ItemColumnSpacing = 10;
+            legend3.Name = "Legend1";
+            legend3.Position.Auto = false;
+            legend3.Position.Height = 5F;
+            legend3.Position.Width = 20F;
+            legend3.Position.X = 75F;
+            legend3.Position.Y = 15F;
+            this.chartSum.Legends.Add(legend3);
             this.chartSum.Location = new System.Drawing.Point(12, 31);
             this.chartSum.Name = "chartSum";
             this.chartSum.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series1.BorderColor = System.Drawing.Color.Black;
-            series1.ChartArea = "ChartArea1";
-            series1.CustomProperties = "PixelPointWidth=40, DrawSideBySide=True, DrawingStyle=Cylinder, MinPixelPointWidt" +
-    "h=15, PointWidth=0.3, LabelStyle=Bottom, MaxPixelPointWidth=40";
-            series1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            series1.Label = "#VAL";
-            series1.LabelBackColor = System.Drawing.SystemColors.Info;
-            series1.LabelBorderColor = System.Drawing.Color.Black;
-            series1.Legend = "Legend1";
-            series1.MarkerBorderColor = System.Drawing.Color.Black;
-            series1.MarkerColor = System.Drawing.Color.White;
-            series1.Name = "Выручка";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartSum.Series.Add(series1);
-            this.chartSum.Size = new System.Drawing.Size(1082, 507);
+            series3.BorderColor = System.Drawing.Color.Black;
+            series3.ChartArea = "ChartArea1";
+            series3.CustomProperties = "PixelPointWidth=50, DrawSideBySide=True, DrawingStyle=Cylinder, MinPixelPointWidt" +
+    "h=15, PointWidth=0.5, LabelStyle=Top, MaxPixelPointWidth=30, EmptyPointValue=Zer" +
+    "o";
+            series3.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series3.Label = "#VAL";
+            series3.LabelBackColor = System.Drawing.SystemColors.Info;
+            series3.LabelBorderColor = System.Drawing.Color.Black;
+            series3.Legend = "Legend1";
+            series3.MarkerBorderColor = System.Drawing.Color.Black;
+            series3.MarkerColor = System.Drawing.Color.White;
+            series3.MarkerSize = 2;
+            series3.Name = "Выручка";
+            series3.SmartLabelStyle.CalloutLineAnchorCapStyle = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.None;
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartSum.Series.Add(series3);
+            this.chartSum.Size = new System.Drawing.Size(1082, 475);
             this.chartSum.TabIndex = 2;
             this.chartSum.TabStop = false;
-            title1.BackColor = System.Drawing.Color.Transparent;
-            title1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            title1.Name = "title";
-            title1.Text = "Выручка за период";
-            this.chartSum.Titles.Add(title1);
+            title3.BackColor = System.Drawing.Color.Transparent;
+            title3.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            title3.Name = "title";
+            title3.Text = "Выручка за период";
+            this.chartSum.Titles.Add(title3);
             // 
             // chartCount
             // 
@@ -172,92 +183,123 @@
             this.chartCount.BorderSkin.BackSecondaryColor = System.Drawing.Color.BlueViolet;
             this.chartCount.BorderSkin.PageColor = System.Drawing.Color.Transparent;
             this.chartCount.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.FrameTitle6;
-            chartArea2.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea2.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-            chartArea2.AxisX.IsLabelAutoFit = false;
-            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            chartArea2.AxisX.LineWidth = 2;
-            chartArea2.AxisX.ScaleBreakStyle.Spacing = 1D;
-            chartArea2.AxisX.TitleFont = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            chartArea2.AxisY.IsLabelAutoFit = false;
-            chartArea2.AxisY.LineWidth = 2;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.BorderColor = System.Drawing.Color.Transparent;
-            chartArea2.InnerPlotPosition.Auto = false;
-            chartArea2.InnerPlotPosition.Height = 75F;
-            chartArea2.InnerPlotPosition.Width = 90F;
-            chartArea2.InnerPlotPosition.X = 8F;
-            chartArea2.InnerPlotPosition.Y = 5F;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 85F;
-            chartArea2.Position.Width = 95F;
-            chartArea2.Position.Y = 10F;
-            this.chartCount.ChartAreas.Add(chartArea2);
+            chartArea4.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea4.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+            chartArea4.AxisX.IsLabelAutoFit = false;
+            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            chartArea4.AxisX.LineWidth = 2;
+            chartArea4.AxisX.ScaleBreakStyle.Spacing = 1D;
+            chartArea4.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            chartArea4.AxisY.IsLabelAutoFit = false;
+            chartArea4.AxisY.LineWidth = 2;
+            chartArea4.AxisY.Title = "Кол-во выполненных заказов, шт.";
+            chartArea4.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            chartArea4.BackColor = System.Drawing.Color.Transparent;
+            chartArea4.BorderColor = System.Drawing.Color.Transparent;
+            chartArea4.InnerPlotPosition.Auto = false;
+            chartArea4.InnerPlotPosition.Height = 75F;
+            chartArea4.InnerPlotPosition.Width = 90F;
+            chartArea4.InnerPlotPosition.X = 8F;
+            chartArea4.InnerPlotPosition.Y = 5F;
+            chartArea4.Name = "ChartArea1";
+            chartArea4.Position.Auto = false;
+            chartArea4.Position.Height = 85F;
+            chartArea4.Position.Width = 95F;
+            chartArea4.Position.Y = 10F;
+            this.chartCount.ChartAreas.Add(chartArea4);
             this.chartCount.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            legend2.BackColor = System.Drawing.Color.Transparent;
-            legend2.Enabled = false;
-            legend2.Font = new System.Drawing.Font("Verdana", 8F);
-            legend2.IsEquallySpacedItems = true;
-            legend2.IsTextAutoFit = false;
-            legend2.ItemColumnSpacing = 10;
-            legend2.Name = "Legend1";
-            legend2.Position.Auto = false;
-            legend2.Position.Height = 5F;
-            legend2.Position.Width = 20F;
-            legend2.Position.X = 75F;
-            legend2.Position.Y = 15F;
-            this.chartCount.Legends.Add(legend2);
-            this.chartCount.Location = new System.Drawing.Point(12, 559);
+            legend4.BackColor = System.Drawing.Color.Transparent;
+            legend4.Enabled = false;
+            legend4.Font = new System.Drawing.Font("Verdana", 8F);
+            legend4.IsEquallySpacedItems = true;
+            legend4.IsTextAutoFit = false;
+            legend4.ItemColumnSpacing = 10;
+            legend4.Name = "Legend1";
+            legend4.Position.Auto = false;
+            legend4.Position.Height = 5F;
+            legend4.Position.Width = 20F;
+            legend4.Position.X = 75F;
+            legend4.Position.Y = 15F;
+            this.chartCount.Legends.Add(legend4);
+            this.chartCount.Location = new System.Drawing.Point(12, 28);
             this.chartCount.Name = "chartCount";
             this.chartCount.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
-            series2.BorderColor = System.Drawing.Color.Black;
-            series2.ChartArea = "ChartArea1";
-            series2.CustomProperties = "PixelPointWidth=40, DrawSideBySide=True, DrawingStyle=Cylinder, MinPixelPointWidt" +
-    "h=15, PointWidth=0.3, LabelStyle=Bottom, MaxPixelPointWidth=40";
-            series2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            series2.Label = "#VAL";
-            series2.LabelBackColor = System.Drawing.SystemColors.Info;
-            series2.LabelBorderColor = System.Drawing.Color.Black;
-            series2.Legend = "Legend1";
-            series2.MarkerBorderColor = System.Drawing.Color.Black;
-            series2.MarkerColor = System.Drawing.Color.White;
-            series2.Name = "Количество работ";
-            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
-            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.chartCount.Series.Add(series2);
+            series4.BorderColor = System.Drawing.Color.Black;
+            series4.ChartArea = "ChartArea1";
+            series4.CustomProperties = "PixelPointWidth=50, DrawSideBySide=True, DrawingStyle=Cylinder, MinPixelPointWidt" +
+    "h=15, PointWidth=0.3, LabelStyle=Top, MaxPixelPointWidth=40";
+            series4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            series4.Label = "#VAL";
+            series4.LabelBackColor = System.Drawing.SystemColors.Info;
+            series4.LabelBorderColor = System.Drawing.Color.Black;
+            series4.Legend = "Legend1";
+            series4.MarkerBorderColor = System.Drawing.Color.Black;
+            series4.MarkerColor = System.Drawing.Color.White;
+            series4.MarkerSize = 2;
+            series4.Name = "Количество работ";
+            series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.String;
+            series4.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartCount.Series.Add(series4);
             this.chartCount.Size = new System.Drawing.Size(1082, 540);
             this.chartCount.TabIndex = 7;
             this.chartCount.TabStop = false;
-            title2.BackColor = System.Drawing.Color.Transparent;
-            title2.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            title2.Name = "title";
-            title2.Text = "Количество выполненных работ на мастера";
-            this.chartCount.Titles.Add(title2);
+            title4.BackColor = System.Drawing.Color.Transparent;
+            title4.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            title4.Name = "title";
+            title4.Text = "Количество выполненных работ на мастера";
+            this.chartCount.Titles.Add(title4);
             // 
             // period
             // 
             this.period.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.period.FormattingEnabled = true;
             this.period.Items.AddRange(new object[] {
+            "За всё время",
             "За последние 2недели",
-            "За последний месяц"});
+            "За последний месяц",
+            "За последние 3 месяца"});
             this.period.Location = new System.Drawing.Point(90, 79);
             this.period.Name = "period";
             this.period.Size = new System.Drawing.Size(314, 26);
             this.period.TabIndex = 8;
             this.period.SelectedIndexChanged += new System.EventHandler(this.period_SelectedIndexChanged);
             // 
+            // back
+            // 
+            this.back.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
+            this.back.Location = new System.Drawing.Point(474, 567);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(69, 45);
+            this.back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.back.TabIndex = 20;
+            this.back.TabStop = false;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
+            // forward
+            // 
+            this.forward.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.forward.Image = global::Barbershop.Properties.Resources.right;
+            this.forward.Location = new System.Drawing.Point(567, 567);
+            this.forward.Name = "forward";
+            this.forward.Size = new System.Drawing.Size(69, 45);
+            this.forward.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.forward.TabIndex = 19;
+            this.forward.TabStop = false;
+            this.forward.Click += new System.EventHandler(this.forward_Click);
+            // 
             // Statistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1106, 1102);
-            this.Controls.Add(this.period);
+            this.ClientSize = new System.Drawing.Size(1106, 613);
             this.Controls.Add(this.chartCount);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.period);
             this.Controls.Add(this.chartSum);
+            this.Controls.Add(this.back);
+            this.Controls.Add(this.forward);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Statistic";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -271,6 +313,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.CloseExe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartSum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forward)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,5 +326,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartSum;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartCount;
         private System.Windows.Forms.ComboBox period;
+        private System.Windows.Forms.PictureBox back;
+        private System.Windows.Forms.PictureBox forward;
     }
 }

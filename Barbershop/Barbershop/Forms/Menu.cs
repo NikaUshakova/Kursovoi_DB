@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -72,7 +73,7 @@ namespace Barbershop
 
         private void StatisticForm_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Ну ТуТ кАрОч 2 ДиАгРаМмКи БуДуТ... НаВеРнОе");
+           // MessageBox.Show("Ну ТуТ кАрОч 2 ДиАгРаМмКи БуДуТ... НаВеРнОе");
             var chart = new Statistic();
             chart.Show();
             this.Hide();
@@ -85,7 +86,7 @@ namespace Barbershop
 
         private void справкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Хелп энд Мануал");
+            Process.Start("SpravkaBarbershop.pdf");
         }
 
         private void menuStrip1_Menu_MouseMove(object sender, MouseEventArgs e)

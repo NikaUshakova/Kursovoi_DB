@@ -104,9 +104,10 @@ namespace Barbershop
                 {
                     service = dr.Cells[1].Value.ToString();        //name_service
                     listBox.Items.Add(service);
+                    ChangeSum();
                 }
             }
-                // MessageBox.Show(TableSelectService.Rows.Count.ToString());
+                
             
         }
          
@@ -165,26 +166,7 @@ namespace Barbershop
         {
             //Special();
         }
-        private void Summ_Click(object sender, EventArgs e)
-        {
-            string service_name;
-            //MessageBox.Show(listBox.Items.Count.ToString());
-            string query;
-           
-            int[] price= new int[listBox.Items.Count] ;
-            int sum=0;
-            for (int i = 0; i < listBox.Items.Count; i++)
-            {
-                service_name = listBox.Items[i].ToString();
-                query = "SELECT price FROM service WHERE service.name_service = '" + service_name + "';";                
-                price[i] = QueriesClass.SelectOne(query);      //+Special()
-                //MessageBox.Show(price[i].ToString());
-                
-                sum += price[i];
-                
-            }
-            OrderSum.Text =  sum + "BYN";
-        }
+        
         private void InsOrder_Click(object sender, EventArgs e) 
         {           
                 DateTime day = monthCalendar1.SelectionStart;
@@ -247,10 +229,29 @@ namespace Barbershop
             }
             
         }
+        private void ChangeSum()
+        {
+            string service_name;
+            //MessageBox.Show(listBox.Items.Count.ToString());
+            string query;
 
+            int[] price = new int[listBox.Items.Count];
+            int sum = 0;
+            for (int i = 0; i < listBox.Items.Count; i++)
+            {
+                service_name = listBox.Items[i].ToString();
+                query = "SELECT price FROM service WHERE service.name_service = '" + service_name + "';";
+                price[i] = QueriesClass.SelectOne(query);
+
+                sum += price[i];
+
+            }
+            OrderSum.Text = sum + "BYN";
+        }
         private void No_Click(object sender, EventArgs e)
         {
             listBox.Items.Remove(listBox.SelectedItem);
+            ChangeSum();
         }
 
         private void TableSelectMasters_CellClick(object sender, DataGridViewCellEventArgs e)

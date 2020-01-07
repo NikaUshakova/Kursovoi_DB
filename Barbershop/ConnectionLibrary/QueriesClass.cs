@@ -70,7 +70,15 @@ namespace ConnectionLibrary
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    result = dataReader.GetInt32(0); //почему-то 0
+                    try
+                    {
+                       // MessageBox.Show(query + "   " + dataReader.GetInt32(0).ToString());
+                       result = dataReader.GetInt32(0); //почему-то 0
+                    }
+                    catch 
+                    {
+                        result = 0;
+                    }
                 }           
 
                 //close Data Reader
@@ -97,7 +105,7 @@ namespace ConnectionLibrary
                 MySqlCommand cmd = new MySqlCommand(query, ConnectionClass.connection);
                 //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
-                listName.Clear();
+                listcombo.Clear();
                 //Read the data and store them in the list
                 
                 while (dataReader.Read())

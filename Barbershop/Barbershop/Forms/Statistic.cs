@@ -15,7 +15,7 @@ namespace Barbershop
     public partial class Statistic : Form
     {
         List<string> masters = new List<string>();
-        // List<string[]> countWorks = new List<string[]>();
+      
         
         public Statistic()
         {            
@@ -26,10 +26,10 @@ namespace Barbershop
        
         private void CloseExe_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
-            //var menu = new Menu();
-            //this.Hide();
-            //menu.Show();
+            //Environment.Exit(0);
+            var menu = new Menu();
+            this.Hide();
+            menu.Show();
         }
 
         private void CloseExe_MouseLeave(object sender, EventArgs e)
@@ -42,14 +42,6 @@ namespace Barbershop
             CloseExe.Size = new Size(23, 23);
         }
 
-            
-
-        private void price_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Delete && !(e.KeyChar == ',' && e.KeyChar == '/'))
-                e.Handled = true;
-            return;
-        }
 
         int moveX, moveY, move;
 
@@ -81,49 +73,92 @@ namespace Barbershop
                 chartCount.Series["Количество работ"].Points.AddXY(masters[i], count);
                 chartCount.ChartAreas["ChartArea1"].AxisX.Interval = 1;
                 chartCount.ChartAreas[0].AxisX.LabelStyle.Angle = -30;
+              
             }
         }
-            private void LoadChartSum()
+        string querySum = "SELECT sum(service.price) FROM service INNER JOIN order_service ON order_service.id_service=service.id_service" +
+                    " INNER JOIN orders ON order_service.id_order = orders.id_order" +
+                    " INNER JOIN masters ON orders.id_master = masters.id_master";
+        string queryDate = "";
+            private void LoadChartSum(string queryDate)
             {
                 string nameMS = "", surnameMS = "", patronymicMS = "";
                 string queryMasters = "SELECT Concat_ws(' ',surname,name,patronymic) FROM masters";
-                string querySum;
+                string querySumCurMaster;
                 masters = QueriesClass.SelectCombo(queryMasters);  //list of FIO masters
-                int [] Sum = new int[masters.Count];
+              int Sum =0;
                 for (int i = 0; i < masters.Count; i++)
                 {
-                    //string text = masters[i].ToString();
-                    //MessageBox.Show(text);
-                    string[] FIO = masters[i].ToString().Split(' ');
+                //string text = masters[i].ToString();
+                //MessageBox.Show(i + "ый " + text);
+                string[] FIO = masters[i].ToString().Split(' ');
                     surnameMS = FIO[0];
                     //MessageBox.Show(surnameMS);
                     nameMS = FIO[1];
                     //MessageBox.Show(nameMS);
                     patronymicMS = FIO[2];
-                    // MessageBox.Show(patronymicMS);
-                    querySum = "SELECT sum(service.price) FROM service INNER JOIN order_service ON order_service.id_service=service.id_service" +
-                        " INNER JOIN orders ON order_service.id_order = orders.id_order"+
-                        " INNER JOIN masters ON orders.id_master = masters.id_master Where masters.surname = '" + surnameMS + "' and masters.Name = '" + nameMS + "' and masters.Patronymic = '" + patronymicMS + "'IS NOT NULL";
-                    Sum[i] = QueriesClass.SelectOne(querySum);
-                    chartSum.Series["Выручка"].Points.AddXY(masters[i], Sum[i]);  //???
+                // MessageBox.Show(patronymicMS);
+                querySumCurMaster = querySum+ " Where masters.surname = '"+surnameMS+"' and masters.Name = '" 
+                    + nameMS + "' and masters.Patronymic = '" + patronymicMS + "'" + queryDate;
+                    Sum = QueriesClass.SelectOne(querySumCurMaster);
+                    chartSum.Series["Выручка"].Points.AddXY(masters[i], Sum);  
                     chartSum.ChartAreas["ChartArea1"].AxisX.Interval = 1;
                     chartSum.ChartAreas[0].AxisX.LabelStyle.Angle = -30;
-                }
+              
+            }
             
         }
         private void Statistic_Load(object sender, EventArgs e)
         {
             LoadChartCount();
-            LoadChartSum();
+            LoadChartSum(queryDate);
+            chartSum.Visible = false;
+            period.Visible = false;
+            period.SelectedIndex = 0;
         }
 
         private void period_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string queryDate = "";
-            if (period.SelectedIndex == 0)
+            string queryWeeks = "";
+            if (period.SelectedIndex == 1)
             {
-                queryDate = "";
+                queryWeeks = "AND (orders.date between  curdate() - interval 14 day AND curdate())";
+                chartSum.Series["Выручка"].Points.Clear();
+                LoadChartSum(queryWeeks);
             }
+            else if (period.SelectedIndex == 2)
+            {
+                queryWeeks = "AND (orders.date between  curdate() - interval 1 month AND curdate())";
+                chartSum.Series["Выручка"].Points.Clear();
+                LoadChartSum(queryWeeks);
+            }
+            else if (period.SelectedIndex == 3)
+            {
+                queryWeeks = "AND (orders.date between  curdate() - interval 3 month AND curdate())";
+                chartSum.Series["Выручка"].Points.Clear();
+                LoadChartSum(queryWeeks);
+            }
+            else
+            {
+                queryWeeks = "";
+                chartSum.Series["Выручка"].Points.Clear();
+                LoadChartSum(queryWeeks);
+            }
+        }
+
+        private void forward_Click(object sender, EventArgs e)
+        {
+           
+            chartSum.Visible = true;
+            period.Visible = true;
+            chartCount.Visible = false;
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            chartCount.Visible = true;
+            chartSum.Visible = false;
+            period.Visible = false;
         }
 
         private void panel1_Statistic_MouseMove(object sender, MouseEventArgs e)

@@ -176,5 +176,13 @@ namespace Barbershop
             moveX = e.X;
             moveY = e.Y;
         }
+
+        public EditMaster EditMaster
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

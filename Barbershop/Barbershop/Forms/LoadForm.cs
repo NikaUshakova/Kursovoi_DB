@@ -17,6 +17,14 @@ namespace Barbershop.Forms
             InitializeComponent();
         }
 
+        public DoneWorks DoneWorks
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Enabled = false;

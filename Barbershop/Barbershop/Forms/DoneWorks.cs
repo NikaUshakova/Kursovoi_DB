@@ -214,7 +214,7 @@ namespace Barbershop
                        " FROM service INNER JOIN order_service ON service.id_service=order_service.id_service " +
                        " INNER JOIN orders ON orders.id_order= order_service.id_order" +
                        " INNER JOIN masters ON masters.id_master = orders.id_master" +
-                       " WHERE masters.Surname = '" + surname + "'AND masters.Name = '" + name + "'AND masters.Patronymic = '" + patronymic + "' " +                 //sosat
+                       " WHERE masters.Surname = '" + surname + "'AND masters.Name = '" + name + "'AND masters.Patronymic = '" + patronymic + "' " +                 
                        " GROUP BY order_service.id_order";
                 QueriesClass.SelectQuery(querySelMaster, InfoWorks);
             }
@@ -271,6 +271,10 @@ namespace Barbershop
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
+            comboFIO.SelectedIndex = -1;
+            comboService.SelectedIndex = -1;
+            firstPrice.Text = "";
+            secondPrice.Text = "";
             string date1 = dateTimePicker1.Value.Year.ToString()+"-" + dateTimePicker1.Value.Month.ToString() +"-" + dateTimePicker1.Value.Day.ToString();
             string date2 = dateTimePicker2.Value.Year.ToString() + "-" + dateTimePicker2.Value.Month.ToString() + "-" + dateTimePicker2.Value.Day.ToString();
             //MessageBox.Show(date1 + "   " + date2);
@@ -279,14 +283,14 @@ namespace Barbershop
                     " FROM service INNER JOIN order_service ON service.id_service=order_service.id_service " +
                     " INNER JOIN orders ON orders.id_order= order_service.id_order" +
                     " INNER JOIN masters ON masters.id_master = orders.id_master" +
-                    " WHERE  orders.Date BETWEEN '" + date1 + "' AND '" + date2 + "'" +                 //sosat
+                    " WHERE  orders.Date BETWEEN '" + date1 + "' AND '" + date2 + "'" +               
                     " GROUP BY order_service.id_order";
             QueriesClass.SelectQuery(querySeldate, InfoWorks);
             // Filter();
             countWorks.Text = "Количество выполненных работ: " + (InfoWorks.RowCount - 1);
             summLine.Text = "Сумма: " + Total() + "BYN";
         }
-
+        
         private void firstSecondPrice_TextChanged(object sender, EventArgs e)
         {
             //Filter();
@@ -361,8 +365,7 @@ namespace Barbershop
         {
             AddOrder newOrder = new AddOrder();
             newOrder.Show();
-            this.Hide();
-          
+            this.Hide();          
         }
     }
 }
